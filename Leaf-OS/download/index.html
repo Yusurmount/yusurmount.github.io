@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaf OS - 下载</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Han+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main-styles.css">
+    <style>
+        .download-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .download-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .download-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .download-card {
+            background-color: #2C2C2C;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .download-card:hover {
+            transform: translateY(-5px);
+        }
+        .download-card h3 {
+            color: #2196F3;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .download-features {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .download-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .download-features li:before {
+            content: "•";
+            color: #2196F3;
+            font-weight: bold;
+        }
+        .version-info {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+            color: #B0B0B0;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <div class="main-content">
+        <div class="download-container">
+            <div class="download-header">
+                <h1>下载 Leaf OS</h1>
+                <p>选择适合您的下载通道</p>
+            </div>
+
+            <div class="download-cards">
+                <!-- GitHub 下载线路 -->
+                <div class="download-card">
+                    <h3>⚙️ GitHub</h3>
+                    <p>获取最新开发版本，实时更新</p>
+                    <ul class="download-features">
+                        <li>内部最新版本</li>
+                        <li>实时更新</li>
+                        <li>完整版本历史</li>
+                        <li><strong>国内访问可能受限</strong></li>
+                        <li><strong>下载速度较慢</strong></li>
+                    </ul>
+                    <a href="https://github.com/yusurmount/leaf-os" target="_blank" class="button primary" style="width: 100%;">GitHub 下载</a>
+                    <div class="version-info">
+                        最新版本: 5.0.0.preview.2507a<br>
+                        更新日期: 2025-7-13
+                    </div>
+                </div>
+
+                <!-- 蓝奏云下载线路 -->
+                <div class="download-card">
+                    <h3>☁️ 蓝奏云</h3>
+                    <p>稳定的国内下载线路</p>
+                    <ul class="download-features">
+                        <li>单个稳定版本</li>
+                        <li>国内高速访问</li>
+                        <li>无需科学上网</li>
+                        <li><strong>更新速度较慢</strong></li>
+                        <li><strong>仅提供最新正式版</strong></li>
+                    </ul>
+                    <a href="https://wwcy.lanzouq.com/b0ulgk72h" target="_blank" class="button primary" style="width: 100%;">蓝奏云下载</a>
+                    <div class="version-info">
+                        当前版本: 5.0.0.preview.2506a<br>
+                        更新日期: 2025-07-06
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 30px; padding: 20px; text-align: center;">
+                <h3>下载说明</h3>
+                <p>建议国内用户优先选择蓝奏云线路，开发者或海外用户选择GitHub线路。</p>
+                <p style="margin-top: 15px;">如有下载问题，请联系 <a href="/contact/" style="color: #2196F3;">技术支持</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="/js/navbar.js"></script>
+    <script src="/js/footer.js"></script>
+</body>
+</html>
