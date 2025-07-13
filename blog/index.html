@@ -3,37 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>雨夌站 | Blog</title>
+    <title>雨夌站 | 博客</title>
     <link href="https://fonts.googleapis.com/css2?family=Source+Han+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/main-styles.css"> <!-- 引用 CSS 文件 -->
+    <link rel="stylesheet" href="/css/main-styles.css">
+    <meta name="theme-color" content="var(--md3-primary)">
+    <style>
+        .blog-header {
+            margin-bottom: var(--md3-spacing-6);
+        }
+        .blog-intro {
+            margin-bottom: var(--md3-spacing-5);
+        }
+        .article-card {
+            margin-bottom: var(--md3-spacing-5);
+            transition: var(--md3-transition-standard);
+            padding: var(--md3-spacing-5);
+            border-radius: var(--md3-radius-large);
+        }
+        .article-card:hover {
+            box-shadow: var(--md3-elevation-4);
+            transform: translateY(-2px);
+        }
+        .article-meta {
+            color: var(--md3-on-surface-variant);
+            font-size: var(--md3-body-small-size);
+            margin-bottom: var(--md3-spacing-2);
+        }
+        .article-title {
+            margin-bottom: var(--md3-spacing-1);
+            color: var(--md3-primary);
+        }
+        .article-title a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .article-title a:hover {
+            text-decoration: underline;
+        }
+        .article-excerpt {
+            margin-bottom: var(--md3-spacing-3);
+            color: var(--md3-on-surface-variant);
+            font-size: var(--md3-body-medium-size);
+            line-height: var(--md3-body-medium-line-height);
+        }
+    </style>
 </head>
 <body>
-  
-    <div id="navbar"></div>
+    <!-- 语义化头部区域 -->
+    <header id="navbar" role="banner"></header>
 
-    <div class="main-content">
-		
-            <h2>博客 Blog</h2>
-            <p>这里是雨夌的博客，时不时会发些文章，也有可能会有别人投稿</p> 
-		<div class="card">
-            <h2>表扬第二个人物</h2>
-            <p>3月8日 | <b>雨夌 发表</b> | ID：4</p> 
-			<p>懒得评价</p>
-            <a href="/blog/表扬第二个人物/" class="button primary">阅读全文 [＜1分钟]</a>
+    <!-- 主要内容区域 -->
+    <main class="main-content" role="main">
+        <div class="blog-header" style="margin-bottom: var(--md3-spacing-8); text-align: center;">
+            <h1 class="headline-large" style="color: var(--md3-on-surface);">博客文章</h1>
         </div>
-        <div class="card">
-            <h2>[百科] 归档</h2>
-            <p>3月8日 | <b>雨夌 发表</b> | ID：1</p> 
-			<p>归档的意思是：生活中指经过整理或分类对文...</p>
-            <a href="/blog/归档/" class="button primary">阅读全文 [3分钟]</a>
-        </div>
-    </div>
 
-    <!-- 动态加载页脚 -->
-    <div id="footer"></div>
+        <section class="card blog-intro" role="region" aria-label="博客介绍">
+            <p class="body-large" style="color: var(--md3-on-surface); margin-bottom: var(--md3-spacing-4);">这里是雨夌站的博客文章列表，记录一些技术心得和日常想法。</p>
+            <div class="button-group" style="margin-top: var(--md3-spacing-2);">
+                <a href="/blog/archive/" class="button secondary" aria-label="查看文章归档">文章归档</a>
+            </div>
+        </section>
 
-    <!-- 引入外部 JavaScript 文件 -->
-    <script src="/js/navbar.js"></script>
-    <script src="/js/footer.js"></script>
+        <section class="article-list" role="feed">
+            <article class="card article-card" role="article">
+                <h2 class="article-title title-medium"><a href="/blog/pork/" aria-label="阅读文章：晾一下猪肉" style="color: var(--md3-primary); text-decoration: none;">晾一下猪肉</a></h2>
+                <div class="article-meta">2024-05-20</div>
+                <p class="article-excerpt">这是一篇关于晾猪肉的文章，介绍了如何正确晾晒猪肉以获得最佳口感。</p>
+                <a href="/blog/pork/" class="button secondary" aria-label="阅读全文：晾一下猪肉">阅读全文</a>
+            </article>
+
+            <article class="card article-card" role="article">
+                <h2 class="article-title title-medium"><a href="/blog/praise1/" aria-label="阅读文章：表扬特别人物" style="color: var(--md3-primary); text-decoration: none;">表扬特别人物</a></h2>
+                <div class="article-meta">2024-05-15</div>
+                <p class="article-excerpt">这篇文章表扬了在项目中做出突出贡献的团队成员。</p>
+                <a href="/blog/praise1/" class="button secondary" aria-label="阅读全文：表扬特别人物">阅读全文</a>
+            </article>
+
+            <article class="card article-card" role="article">
+                <h2 class="article-title title-medium"><a href="/blog/praise2/" aria-label="阅读文章：表扬第二个人物" style="color: var(--md3-primary); text-decoration: none;">表扬第二个人物</a></h2>
+                <div class="article-meta">2024-05-10</div>
+                <p class="article-excerpt">这篇文章表扬了另一位对项目有重要贡献的成员。</p>
+                <a href="/blog/praise2/" class="button secondary" aria-label="阅读全文：表扬第二个人物">阅读全文</a>
+            </article>
+        </section>
+    </main>
+
+    <!-- 语义化页脚区域 -->
+    <footer id="footer" role="contentinfo"></footer>
+
+    <!-- JavaScript 加载 -->
+    <script src="/js/navbar.js" defer></script>
+    <script src="/js/footer.js" defer></script>
 </body>
 </html>

@@ -1,14 +1,145 @@
-/* 全局样式 */
+/* MD3设计令牌 - 完整变量定义 */
+:root {
+    /* 颜色系统 - MD3核心调色板 */
+    --md3-primary: #6200EE; /* 主色 */
+    --md3-primary-container: #EADDFF; /* 主色容器 */
+    --md3-on-primary: #FFFFFF; /* 主色上的文本 */
+    --md3-on-primary-container: #1D192B; /* 主色容器上的文本 */
+    --md3-primary-dark: #7B1AF2; /* 主色深色变体 */
+    --md3-primary-light: #BB86FC; /* 主色浅色变体 */
+    
+    --md3-secondary: #03DAC6; /* 次要色 */
+    --md3-secondary-container: #004D40; /* 次要色容器 */
+    --md3-on-secondary: #000000; /* 次要色上的文本 */
+    --md3-on-secondary-container: #B2FFFF; /* 次要色容器上的文本 */
+    --md3-secondary-dark: #018786; /* 次要色深色变体 */
+    --md3-secondary-light: #64FFDA; /* 次要色浅色变体 */
+    
+    --md3-surface: #FFFFFF; /* 表面色 */
+    --md3-surface-variant: #F5F5F5; /* 表面变体色 */
+    --md3-on-surface: #121212; /* 表面上的文本 */
+    --md3-on-surface-variant: #616161; /* 表面变体上的文本 */
+    --md3-on-primary-container-variant: #332E41; /* 主色容器变体文本 */
+    
+    --md3-error: #B00020; /* 错误色 */
+    --md3-on-error: #FFFFFF; /* 错误色上的文本 */
+
+    /* 排版系统 - 包含字号、字重和行高 */
+    --md3-font-family: 'Source Han Sans', sans-serif;
+    --md3-code-font: 'Consolas', 'Monaco', monospace;
+    
+    /* 标题样式 */
+    --md3-headline-large: 32px; /* 大标题字号 */
+    --md3-headline-large-weight: 400; /* 大标题字重 */
+    --md3-headline-large-line-height: 40px; /* 大标题行高 */
+    
+    --md3-headline-medium: 28px; /* 中标题字号 */
+    --md3-headline-medium-weight: 400; /* 中标题字重 */
+    --md3-headline-medium-line-height: 36px; /* 中标题行高 */
+    
+    --md3-headline-small: 24px; /* 小标题字号 */
+    --md3-headline-small-weight: 400; /* 小标题字重 */
+    --md3-headline-small-line-height: 32px; /* 小标题行高 */
+    
+    /* 标题文本样式 */
+    --md3-title-large: 22px; /* 大标题文本字号 */
+    --md3-title-large-weight: 500; /* 大标题文本字重 */
+    --md3-title-large-line-height: 28px; /* 大标题文本行高 */
+    
+    --md3-title-medium: 16px; /* 中标题文本字号 */
+    --md3-title-medium-weight: 500; /* 中标题文本字重 */
+    --md3-title-medium-line-height: 24px; /* 中标题文本行高 */
+    
+    --md3-title-small: 14px; /* 小标题文本字号 */
+    --md3-title-small-weight: 500; /* 小标题文本字重 */
+    --md3-title-small-line-height: 20px; /* 小标题文本行高 */
+    
+    /* 正文样式 */
+    --md3-body-large: 16px; /* 大正文字号 */
+    --md3-body-large-weight: 400; /* 大正文字重 */
+    --md3-body-large-line-height: 24px; /* 大正文行高 */
+    
+    --md3-body-medium: 14px; /* 中正文字号 */
+    --md3-body-medium-weight: 400; /* 中正文字重 */
+    --md3-body-medium-line-height: 20px; /* 中正文行高 */
+    
+    --md3-body-small: 12px; /* 小正文字号 */
+    --md3-body-small-weight: 400; /* 小正文字重 */
+    --md3-body-small-line-height: 16px; /* 小正文行高 */
+    
+    /* 标签样式 */
+    --md3-label-large: 14px; /* 大标签字号 */
+    --md3-label-large-weight: 500; /* 大标签字重 */
+    --md3-label-large-line-height: 20px; /* 大标签行高 */
+    
+    --md3-label-medium: 12px; /* 中标签字号 */
+    --md3-label-medium-weight: 500; /* 中标签字重 */
+    --md3-label-medium-line-height: 16px; /* 中标签行高 */
+    
+    --md3-label-small: 11px; /* 小标签字号 */
+    --md3-label-small-weight: 500; /* 小标签字重 */
+    --md3-label-small-line-height: 16px; /* 小标签行高 */
+
+    /* 间距系统 - MD3标准间距 */
+    --md3-spacing-1: 4px;
+    --md3-spacing-2: 8px;
+    --md3-spacing-3: 16px;
+    --md3-spacing-4: 24px;
+    --md3-spacing-5: 32px;
+    --md3-spacing-6: 48px;
+    --md3-spacing-7: 64px;
+    --md3-spacing-8: 80px;
+
+    /* 边框半径 - MD3形状系统 */
+    --md3-radius-small: 4px; /* 小形状 */
+    --md3-radius-medium: 8px; /* 中形状 */
+    --md3-radius-large: 12px; /* 大形状 */
+    --md3-radius-xlarge: 16px; /* 超大形状 */
+    --md3-radius-full: 9999px; /* 圆形 */
+
+    /* 阴影系统 - MD3 elevation */
+    --md3-elevation-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --md3-elevation-2: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+    --md3-elevation-3: 0 10px 20px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.10);
+    --md3-elevation-4: 0 15px 30px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 暗色模式支持 - 可通过媒体查询或JS切换 */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --md3-surface: #121212;
+        --md3-surface-variant: #333333;
+        --md3-on-surface: #FFFFFF;
+        --md3-on-surface-variant: #E0E0E0;
+    }
+}
+
+/* 全局样式 - MD3亮色主题 */
 html, body {
-    height: 100%; /* 使 html 和 body 占满整个视口高度 */
+    height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Source Han Sans', sans-serif;
-    background-color: #121212;
-    color: #FFFFFF;
+    font-family: var(--md3-font-family);
+    background-color: var(--md3-surface);
+    color: var(--md3-on-surface);
     display: flex;
-    flex-direction: column; /* 垂直排列 */
+    flex-direction: column;
+    line-height: 1.5; /* MD3标准行高 */
 }
+
+/* 排版基础样式 */
+h1 { font-size: var(--md3-headline-large); font-weight: 400; margin: 0; }
+h2 { font-size: var(--md3-headline-medium); font-weight: 400; margin: 0; }
+h3 { font-size: var(--md3-headline-small); font-weight: 400; margin: 0; }
+h4 { font-size: var(--md3-title-large); font-weight: 500; margin: 0; }
+h5 { font-size: var(--md3-title-medium); font-weight: 500; margin: 0; }
+h6 { font-size: var(--md3-title-small); font-weight: 500; margin: 0; }
+
+p { font-size: var(--md3-body-medium); margin: 0 0 var(--md3-spacing-2) 0; }
+
+/* 链接基础样式 */
+a { color: var(--md3-primary); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--md3-primary-dark); }
 
 /* 主要内容区域 */
 .main-content {
@@ -22,32 +153,51 @@ html, body {
 
 /* 导航栏样式 */
 .navbar {
-    background-color: #1E1E1E;
-    padding: 16px;
+    background-color: var(--md3-primary);
+    padding: var(--md3-spacing-3);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* 允许换行 */
-    position: fixed; /* 固定在顶部 */
-    top: 0; /* 与顶部对齐 */
-    left: 0; /* 与左侧对齐 */
-    width: 100%; /* 撑满整个 X 轴 */
-    z-index: 1000; /* 确保标题栏在最上层 */
-    box-sizing: border-box; /* 内边距包含在宽度内 */
+    flex-wrap: wrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    box-shadow: var(--md3-elevation-2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.navbar:hover {
+    box-shadow: var(--md3-elevation-3);
 }
 
 .navbar a {
-    color: #FFFFFF;
+    color: #FFFFFF; /* MD3 on-primary color */
     text-decoration: none;
     margin: 0 16px;
+    font-weight: 500;
 }
 
 /* 卡片样式 */
 .card {
-    background-color: #2C2C2C;
-    border-radius: 8px;
-    padding: 8px; /* 内边距统一改为 8px */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: var(--md3-surface-variant);
+    border-radius: var(--md3-radius-large);
+    padding: var(--md3-spacing-4);
+    box-shadow: var(--md3-elevation-1);
+    transition: box-shadow 0.3s, transform 0.2s;
+    margin-bottom: var(--md3-spacing-3);
+}
+
+.card:hover {
+    box-shadow: var(--md3-elevation-2);
+    transform: translateY(-2px);
+}
+
+.card:active {
+    box-shadow: var(--md3-elevation-1);
+    transform: translateY(0);
 }
 
 /* 基础按钮样式 */
@@ -67,17 +217,22 @@ html, body {
 
 /* 主要按钮样式 */
 .button.primary {
-    background-color: #2196F3; /* 主要按钮背景色 */
-    color: #FFFFFF; /* 文字颜色 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+    background-color: var(--md3-primary);
+    color: var(--md3-on-primary);
+    box-shadow: var(--md3-elevation-2);
+    border-radius: var(--md3-radius-full);
+    padding: var(--md3-spacing-2) var(--md3-spacing-4);
+    font-size: var(--md3-label-large);
+    font-weight: 500;
 }
 
 /* 主要按钮悬停效果 */
 .button.primary:hover {
-    background-color: #64B5F6; /* 悬停时背景色 */
-    transform: scale(1.05); /* 轻微放大 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 阴影加深 */
-}
+    background-color: #7B1AF2; /* MD3 primary dark color */
+    transform: scale(1.02); /* MD3 recommended hover scale */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* MD3 elevation level 3 */
+}*/
+{
 
 /* 主要按钮按下效果 */
 .button.primary:active {
@@ -88,30 +243,35 @@ html, body {
 
 /* 次要按钮样式 */
 .button.secondary {
-    background-color: transparent; /* 透明背景 */
-    color: #2196F3; /* 文字颜色 */
-    box-shadow: inset 0 0 0 2px #2196F3; /* 内边框效果 */
+    background-color: transparent;
+    color: var(--md3-secondary);
+    box-shadow: inset 0 0 0 2px var(--md3-secondary);
+    border-radius: var(--md3-radius-full);
+    padding: var(--md3-spacing-2) var(--md3-spacing-4);
+    font-size: var(--md3-label-large);
+    font-weight: 500;
 }
 
 /* 次要按钮悬停效果 */
 .button.secondary:hover {
-    background-color: rgba(33, 150, 243, 0.1); /* 悬停时背景色 */
-    transform: scale(1.05); /* 轻微放大 */
+    background-color: rgba(3, 218, 198, 0.1); /* MD3 secondary light color */
+    transform: scale(1.02); /* MD3 recommended hover scale */
 }
 
 /* 次要按钮按下效果 */
 .button.secondary:active {
-    background-color: rgba(33, 150, 243, 0.2); /* 按下时背景色 */
-    transform: scale(0.98); /* 微微缩小 */
+    background-color: rgba(3, 218, 198, 0.2); /* MD3 secondary dark color */
+    transform: scale(0.98); /* MD3 recommended active scale */
 }
 
 /* 页脚样式 */
 .footer {
-    background-color: #1E1E1E;
-    color: #B0B0B0;
+    background-color: var(--md3-surface-variant);
+    color: var(--md3-on-surface-variant);
     text-align: center;
-    padding: 16px;
-    font-size: 16px; /* 默认字体大小 */
+    padding: var(--md3-spacing-3);
+    font-size: var(--md3-body-small);
+    margin-top: auto;
 }
 
 /* 响应式布局 */
@@ -120,6 +280,7 @@ html, body {
     .navbar {
         align-items: flex-start; /* 左对齐 */
         padding: 8px;
+        background-color: #6200EE; /* 保持MD3主色 */
     }
 
     .navbar a {
@@ -170,4 +331,4 @@ html, body {
         padding: 8px;
         font-size: 12px; /* 调整字体大小 */
     }
-}
+}}

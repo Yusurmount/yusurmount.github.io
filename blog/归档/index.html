@@ -3,31 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>归档 | Ling's Blog</title>
+    <title>文章归档 | 雨夌站</title>
     <link href="https://fonts.googleapis.com/css2?family=Source+Han+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/main-styles.css"> <!-- 引用 CSS 文件 -->
+    <link rel="stylesheet" href="/css/main-styles.css">
+    <meta name="theme-color" content="var(--md3-primary)">
+    <style>
+        .archive-header {
+            margin-bottom: var(--md3-spacing-6);
+        }
+        .archive-intro {
+            margin-bottom: var(--md3-spacing-5);
+        }
+        .archive-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .archive-item {
+            padding: var(--md3-spacing-4);
+            border-bottom: 1px solid var(--md3-outline-variant);
+            transition: background-color var(--md3-transition-duration-short) var(--md3-transition-timing-function-standard);
+        }
+        .archive-item:last-child {
+            border-bottom: none;
+        }
+        .archive-item:hover {
+            background-color: var(--md3-surface-variant);
+        }
+        .archive-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: var(--md3-on-surface);
+            font-size: var(--md3-title-medium-size);
+            font-weight: var(--md3-title-medium-weight);
+            line-height: var(--md3-title-medium-line-height);
+        }
+        .archive-link:hover {
+            color: var(--md3-primary);
+        }
+        .archive-date {
+            color: var(--md3-on-surface-variant);
+            font-size: var(--md3-body-small-size);
+            margin-left: var(--md3-spacing-3);
+        }
+    </style>
 </head>
 <body>
-    <!-- 动态加载标题栏 -->
-    <div id="navbar"></div>
+    <!-- 语义化头部区域 -->
+    <header id="navbar" role="banner"></header>
 
-    <div class="main-content">
-        <div class="card">
-            <h2>[百科] 归档</h2>
-			<p>2025年3月8日 13:28 | <b>雨夌 发表</b> | id: 1</p>
-		</div>
-            <p>归档的意思是：生活中指经过整理或分类对文档或文件进行一定序列的排列，做到文档或文件源头可追溯。</p>
-			<p>归档最通用的定义是存储有组织的数据。归档的目的是长时间存放有组织的数据集，确保其将来能够被精细地检索。改进的磁带是这种应用最理想的方式。[摘自百度百科]</p>
-            <p>在本站中的归档指的是<b>数据归档</b>。而数据归档是将不再经常使用的数据移到一个单独的存储设备来进行长期保存</p>
-			<a href="/blog/" class="button secondary">完成阅读</a>
-        
-    </div>
+    <!-- 主要内容区域 -->
+    <main class="main-content" role="main">
+        <div class="archive-header" style="margin-bottom: var(--md3-spacing-8); text-align: center;">
+            <h1 class="headline-large" style="color: var(--md3-on-surface);">文章归档</h1>
+        </div>
 
-    <!-- 动态加载页脚 -->
-    <div id="footer"></div>
+        <section class="card archive-intro" role="region" aria-label="归档介绍">
+            <p class="body-large" style="color: var(--md3-on-surface); margin-bottom: var(--md3-spacing-2);">所有历史文章的归档列表。</p>
+        </section>
 
-    <!-- 引入外部 JavaScript 文件 -->
-    <script src="/js/navbar.js"></script>
-    <script src="/js/footer.js"></script>
+        <div class="card" style="padding: var(--md3-spacing-0); border-radius: var(--md3-radius-large);">
+            <ul class="archive-list" role="directory">
+                <li class="archive-item">
+                    <a href="/blog/晾一下猪肉/" class="archive-link" aria-label="阅读文章：晾一下猪肉">
+                        <span>晾一下猪肉</span>
+                        <time class="archive-date" datetime="2024-05-20">2024-05-20</time>
+                    </a>
+                </li>
+                <li class="archive-item">
+                    <a href="/blog/表扬特别人物/" class="archive-link" aria-label="阅读文章：表扬特别人物">
+                        <span>表扬特别人物</span>
+                        <time class="archive-date" datetime="2024-05-15">2024-05-15</time>
+                    </a>
+                </li>
+                <li class="archive-item">
+                    <a href="/blog/表扬第二个人物/" class="archive-link" aria-label="阅读文章：表扬第二个人物">
+                        <span>表扬第二个人物</span>
+                        <time class="archive-date" datetime="2024-05-10">2024-05-10</time>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- 语义化页脚区域 -->
+    <footer id="footer" role="contentinfo"></footer>
+
+    <!-- JavaScript 加载 -->
+    <script src="/js/navbar.js" defer></script>
+    <script src="/js/footer.js" defer></script>
 </body>
 </html>

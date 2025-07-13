@@ -3,30 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>雨夌站 | 首页</title>
+    <title>抖音联系 | 雨夌站</title>
     <link href="https://fonts.googleapis.com/css2?family=Source+Han+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/main-styles.css"> <!-- 引用 CSS 文件 -->
+    <link rel="stylesheet" href="/css/main-styles.css">
+    <meta name="theme-color" content="var(--md3-primary)">
+    <style>
+        .contact-header {
+            margin-bottom: var(--md3-spacing-6);
+        }
+        .contact-card {
+            margin-bottom: var(--md3-spacing-4);
+        }
+        .contact-info {
+            margin-bottom: var(--md3-spacing-3);
+        }
+        .contact-actions {
+            display: flex;
+            gap: var(--md3-spacing-3);
+            margin-top: var(--md3-spacing-4);
+        }
+    </style>
 </head>
 <body>
-    <!-- 动态加载标题栏 -->
-    <div id="navbar"></div>
+    <!-- 语义化头部区域 -->
+    <header id="navbar" role="banner"></header>
 
-    <div class="main-content">
-        <div class="card">
-            <h2>使用抖音联系</h2>
-            <p>抖音号：yusurmount</p>
-			
+    <!-- 主要内容区域 -->
+    <main class="main-content" role="main">
+        <div class="contact-header">
+            <h1>使用抖音联系</h1>
         </div>
-		<div class="card">
-			<p>或者：<a href="https://www.douyin.com/user/MS4wLjABAAAAmzMshihXiT5Tk5FzLglwjv6uEN5t21lFkqdAf7O3UKBxOrnPKKyiO8_Z5Kp1p8cW" class="button primary">跳转抖音个人主页</a></p>
-		</div>
-    </div>
 
-    <!-- 动态加载页脚 -->
-    <div id="footer"></div>
+        <section class="card contact-card" role="region" aria-label="抖音联系方式">
+            <div class="contact-info">
+                <p>抖音号：<strong>yusurmount</strong></p>
+            </div>
+            <div class="contact-actions">
+                <a href="https://www.douyin.com/user/MS4wLjABAAAAmzMshihXiT5Tk5FzLglwjv6uEN5t21lFkqdAf7O3UKBxOrnPKKyiO8_Z5Kp1p8cW" class="button primary" target="_blank" rel="noopener noreferrer" aria-label="跳转抖音个人主页">跳转抖音个人主页</a>
+                <a href="/contact/" class="button secondary" aria-label="返回联系页面">返回联系页面</a>
+            </div>
+        </section>
+    </main>
 
-    <!-- 引入外部 JavaScript 文件 -->
-    <script src="/js/navbar.js"></script>
-    <script src="/js/footer.js"></script>
+    <!-- 语义化页脚区域 -->
+    <footer id="footer" role="contentinfo"></footer>
+
+    <!-- JavaScript 加载 -->
+    <script src="/js/navbar.js" defer></script>
+    <script src="/js/footer.js" defer></script>
 </body>
 </html>

@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>雨夌站 | 更新日志</title>
+    <meta name="theme-color" content="var(--md3-primary)">
+    <title>雨夌站 | v3更新日志</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Han+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main-styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -176,25 +178,14 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="menu-toggle" onclick="toggleMenu()">☰ 菜单</div>
-        <div class="title">雨夌站 | 更新日志</div>
-    </div>
-    <div class="menu" id="menu">
-        <a href="/">返回首页</a>
-		<a href="/live/">直播间</a>
-		<a href="/blog/">博客Blog</a>
-		<a href="/ai/">AI体验</a>
-        <a href="/update.html">更新日志</a>
-        <a href="/about.html">关于网站</a>
-    </div>
-    <h1>v3更新日志</h1>
-	<div class="tip">
-  <h3>此页已归档</h3>
-	<p>此页于2025.3.8 13:02归档，自归档日起，该页面停止更新，后续将不再提供任何形式的支持与更新。若需要获取最新信息，请前往其他板块或栏目.</p>		
-  </div>
-    <div class="update-log">
-      <h3>UDf-3.3 细节修复</h3>
+    <!-- 动态加载导航栏 -->
+    <div id="navbar"></div>
+
+    <main class="main-content" role="main">
+        <div class="card" style="margin: var(--md3-spacing-6) auto; padding: var(--md3-spacing-6); max-width: 800px;">
+            <h1 class="headline-large" style="color: var(--md3-on-surface); text-align: center; margin-bottom: var(--md3-spacing-4);">v3更新日志</h1>
+            <div class="update-log">
+                <h3 class="title-medium" style="color: var(--md3-primary);">UDf-3.3 细节修复</h3>
         <p>2025年2月5日 14:06</p>
         <ul>
             <li>• 新增 每页页脚信息</li>
@@ -225,13 +216,14 @@
             <li>• 关闭 直播线路三，但仍然可以访问</li>
         </ul>
     </div>
-    
-  
-        
-  
-	<footer>
-        雨夌站 | © 2025.1 雨夌 All Rights Reserved | 迭代号：4.1
-    </footer>
+            <div class="card" style="background-color: var(--md3-surface-variant); padding: var(--md3-spacing-4); margin-top: var(--md3-spacing-5); border-radius: var(--md3-radius-medium);">
+                <h3 class="title-medium" style="color: var(--md3-on-surface-variant); margin-top: 0;">此页已归档</h3>
+                <p class="body-medium" style="color: var(--md3-on-surface-variant);">此页于2025.3.8 13:02归档，自归档日起，该页面停止更新，后续将不再提供任何形式的支持与更新。若需要获取最新信息，请前往其他板块或栏目。</p>
+            </div>
+        </div>
+    </main>
+    <!-- 动态加载页脚 -->
+    <div id="footer"></div>
 	<script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
