@@ -1,6 +1,6 @@
-# 个人网页 - MD3 设计
+# 雨夌站
 
-这是一个基于 Material Design 3 (MD3) 的个人网页，采用蓝色主题，实现了无缝页面切换效果。
+这是一个基于 Material Design 3 的个人网页
 
 ## 项目结构
 
@@ -52,3 +52,7 @@
 - JavaScript
 - Material Design 3
 - GitHub Pages
+
+---
+## 许可证
+[CC BY-NC-SA 4.0](LICENSE)
