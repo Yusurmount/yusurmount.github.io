@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>雨夌站 | v1更新日志</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            padding-top: 48px; /* 修改内边距为32px */
+        }
+        .header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed; /* 固定标题栏 */
+            top: 0; /* 置顶 */
+            width: 100%; /* 宽度为100% */
+            z-index: 1000; /* 确保标题栏在最上层 */
+        }
+        .header .menu-toggle {
+            position: absolute;
+            top: 8px; /* 菜单按钮上边距 */
+            left: 10px;
+            background-color: #388e3c; /* 深绿色背景 */
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em; /* 菜单按钮字体大小 */
+            cursor: pointer;
+        }
+        .header .menu-toggle:hover {
+            background-color: #2e7d32; /* 悬停时更深的绿色 */
+        }
+        .header .title {
+            flex: 1;
+            text-align: right; /* 标题靠右 */
+            margin-right: 50px; /* 修改右边距为50px */
+            font-size: 1.3em; /* 标题字体大小为1.3em */
+            font-weight: bold; /* 标题加粗 */
+        }
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            transform: translateX(-300px); /* 菜单收回距离 */
+            transition: transform 0.3s ease;
+            padding-top: 48px; /* 菜单主体上边距 */
+			z-index: 100
+        }
+        .menu.active {
+            transform: translateX(0);
+        }
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+            font-size: 1.1em; /* 菜单字体大小 */
+            padding-top: 24px; /* 菜单项上边距 */
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        h3 {
+            color: #2196F3;
+        }
+        .update-log {
+            margin: 20px auto; /* 增加上下边距并居中 */
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-width: 800px; /* 设置最大宽度 */
+			
+        }
+		
+        .update-log h3 {
+            margin-top: 0;
+        }
+        .update-log p {
+            margin: 5px 0;
+        }
+        .update-log ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .update-log ul li {
+            margin: 5px 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #777;
+            background-color: #fff; /* 添加白色背景 */
+            padding: 10px 0; /* 增加上下内边距 */
+            position: fixed; /* 始终置于浏览器底部 */
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid #ddd; /* 添加顶部边框 */
+        }
+        footer a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+		 .tip {
+            margin: 20px auto; /* 增加上下边距并居中 */
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-width: 800px; /* 设置最大宽度 */
+			
+        }
+		
+        .tip h3 {
+            margin-top: 0;
+			color:#C07B00
+        }
+        .tip p {
+            margin: 5px 0;
+        }
+        .tip ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .tip ul li {
+            margin: 5px 0;
+        }
+		
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="menu-toggle" onclick="toggleMenu()">☰ 菜单</div>
+        <div class="title">雨夌站 | 更新日志</div>
+    </div>
+    <div class="menu" id="menu">
+        <a href="/">返回首页</a>
+		<a href="/live/">直播间</a>
+		<a href="/blog/">博客Blog</a>
+        <a href="/update.html">更新日志</a>
+        <a href="/about.html">关于网站</a>
+    </div>
+    <h1>v1更新日志</h1>
+<div class="tip">
+  <h3>此页已归档</h3>
+	<p>此页于2025.2.5 19:42归档，自归档日起，该页面停止更新，后续将不再提供任何形式的支持。若需要获取最新信息，请前往其他板块或栏目.</p>
+			
+  </div>
+    <div class="update-log">
+        <h3>UD-1 第一次更新</h3>
+        <p>2025年2月3日 23:32</p>
+        <ul>
+            <li>• 新增 主页<br>以后默认跳转主页并选择线路</li>
+            <li>• 优化 线路描述</li>
+        </ul>
+    </div>
+	<footer>
+        雨夌站 | © 2025.1 雨夌 All Rights Reserved | 迭代号：4.1
+    </footer>
+	<script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
