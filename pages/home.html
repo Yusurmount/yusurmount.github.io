@@ -1,0 +1,71 @@
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>欢迎来到我的个人主页</h1>
+        <p class="subtitle">探索我的项目、博客和个人经历</p>
+        <md-filled-button href="/about" class="hero-button">了解更多</md-filled-button>
+    </div>
+</section>
+
+<section class="features-section">
+    <h2>我的技能</h2>
+    <div class="features-grid">
+        <md-card class="feature-card">
+            <md-icon slot="media" class="feature-icon">code</md-icon>
+            <h3>Web开发</h3>
+            <p>使用现代前端技术构建响应式网站和应用</p>
+        </md-card>
+        <md-card class="feature-card">
+            <md-icon slot="media" class="feature-icon">design_services</md-icon>
+            <h3>UI/UX设计</h3>
+            <p>遵循MD3设计规范创建美观且易用的用户界面</p>
+        </md-card>
+        <md-card class="feature-card">
+            <md-icon slot="media" class="feature-icon">storage</md-icon>
+            <h3>后端开发</h3>
+            <p>设计和实现可靠的服务器端解决方案</p>
+        </md-card>
+    </div>
+</section>
+
+<style>
+    .hero-section {
+        background-color: var(--md-sys-color-primary-container);
+        color: var(--md-sys-color-on-primary-container);
+        padding: 64px 24px;
+        text-align: center;
+        border-radius: 16px;
+        margin-bottom: 48px;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+        margin-bottom: 16px;
+    }
+    .subtitle {
+        font-size: 1.25rem;
+        opacity: 0.9;
+        margin-bottom: 32px;
+    }
+    .features-section {
+        margin: 48px 0;
+    }
+    .features-section h2 {
+        text-align: center;
+        margin-bottom: 32px;
+        color: var(--md-sys-color-on-surface);
+    }
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+    }
+    .feature-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .feature-icon {
+        color: var(--md-sys-color-primary);
+        width: 48px;
+        height: 48px;
+    }
+</style>

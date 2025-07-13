@@ -1,0 +1,20 @@
+<md-top-app-bar>
+    <div slot="title">个人主页</div>
+    <md-icon-button slot="navigation" id="menu-button">
+        <md-icon>menu</md-icon>
+    </md-icon-button>
+    <md-icon-button slot="action" id="search-button">
+        <md-icon>search</md-icon>
+    </md-icon-button>
+    <md-icon-button slot="action" id="user-button">
+        <md-icon>person</md-icon>
+    </md-icon-button>
+</md-top-app-bar>
+
+<script>
+    // 菜单按钮点击事件
+    document.getElementById('menu-button').addEventListener('click', function() {
+        const drawer = document.querySelector('md-drawer');
+        if (drawer) drawer.open = !drawer.open;
+    });
+</script>

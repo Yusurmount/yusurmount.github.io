@@ -1,0 +1,48 @@
+<section class="error-section">
+    <div class="error-container">
+        <md-icon class="error-icon">error_outline</md-icon>
+        <h1>404</h1>
+        <h2>页面未找到</h2>
+        <p>抱歉，您请求的页面不存在或已被移动。</p>
+        <md-filled-button href="/" class="home-button">返回首页</md-filled-button>
+    </div>
+</section>
+
+<style>
+    .error-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 500px;
+    }
+    .error-container {
+        text-align: center;
+        padding: 48px;
+        border-radius: 24px;
+        background-color: var(--md-sys-color-surface-container-low);
+    }
+    .error-icon {
+        width: 96px;
+        height: 96px;
+        color: var(--md-sys-color-error);
+        margin-bottom: 24px;
+    }
+    .error-container h1 {
+        font-size: 4rem;
+        margin-bottom: 16px;
+        color: var(--md-sys-color-on-surface);
+    }
+    .error-container h2 {
+        font-size: 2rem;
+        margin-bottom: 16px;
+        color: var(--md-sys-color-on-surface);
+    }
+    .error-container p {
+        margin-bottom: 32px;
+        color: var(--md-sys-color-on-surface-variant);
+        font-size: 1.1rem;
+    }
+    .home-button {
+        min-width: 160px;
+    }
+</style>

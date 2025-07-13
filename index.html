@@ -3,167 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>雨夌站 | 首页</title>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Han+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/main-styles.css">
-    <!-- MD3 主题颜色元数据 -->
-    <meta name="theme-color" content="var(--md3-primary)">
-    <style>
-        .main-content {
-            flex: 1;
-            padding: var(--md3-spacing-3);
-            padding-top: calc(64px + var(--md3-spacing-3)); /* 为固定标题栏留出空间 */
-            display: flex;
-            flex-direction: column;
-            max-width: 1200px;
-            margin: 0 auto; /* 居中显示 */
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        /* 英雄区域样式 */
-        .hero-card {
-            text-align: center;
-            padding: var(--md3-spacing-8) var(--md3-spacing-4);
-            border-radius: var(--md3-shape-large);
-            margin-bottom: var(--md3-spacing-6);
-            background: linear-gradient(135deg, var(--md3-primary-container) 0%, var(--md3-secondary-container) 100%);
-            color: var(--md3-on-primary-container);
-        }
-
-        .hero-title {
-            font-size: var(--md3-headline-large);
-            font-weight: var(--md3-headline-large-weight);
-            margin-bottom: var(--md3-spacing-4);
-        }
-
-        .hero-subtitle {
-            font-size: var(--md3-body-large);
-            margin-bottom: var(--md3-spacing-6);
-            color: var(--md3-on-primary-container-variant);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .scroll-indicator {
-            margin-top: var(--md3-spacing-6);
-            animation: bounce 2s infinite;
-            color: var(--md3-on-primary-container);
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-20px);}
-            60% {transform: translateY(-10px);}
-        }
-
-        /* 按钮组样式 */
-        .button-group {
-            display: flex;
-            gap: var(--md3-spacing-3);
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: var(--md3-spacing-6);
-        }
-
-        /* 功能网格布局 */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--md3-spacing-4);
-            margin-top: var(--md3-spacing-8);
-        }
-
-        .feature-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--md3-elevation-4);
-        }
-
-        .feature-card-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .feature-card-title {
-            font-size: var(--md3-title-large);
-            margin-bottom: var(--md3-spacing-2);
-            color: var(--md3-on-surface);
-        }
-
-        .feature-card-description {
-            font-size: var(--md3-body-medium);
-            color: var(--md3-on-surface-variant);
-            margin-bottom: var(--md3-spacing-4);
-            flex: 1;
-        }
-
-        .feature-card-action {
-            margin-top: auto;
-            align-self: flex-start;
-        }
-    </style>
+    <title>个人网页</title>
+    <!-- 引入Material Design 3 -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/@material/web@1.0.0-beta.3/dist/md3.js"></script>
+    <!-- 引入自定义主题CSS -->
+    <link rel="stylesheet" href="/css/md3-theme.css">
 </head>
 <body>
-    <!-- 语义化头部区域 -->
-    <header id="navbar" role="banner"></header>
+    <div id="header-container"></div>
+    <div id="menu-container"></div>
+    <main id="content-container"></main>
+    <div id="footer-container"></div>
 
-    <!-- 主要内容区域 -->
-    <main class="main-content" role="main">
-        <!-- 英雄区域 -->
-        <section class="card hero-card" role="region" aria-label="网站介绍">
-            <h1 class="hero-title">欢迎来到雨夌站</h1>
-            <p class="hero-subtitle">雨夌站现已全面焕新，更快访问，更优界面，更多内容，更便捷的导航，等您发现</p>
-            <div class="button-group">
-                <a href="/about/" class="button primary" aria-label="了解更多关于雨夌站">了解更多</a>
-                <a href="/contact/" class="button secondary" aria-label="联系雨夌站">联系我</a>
-            </div>
-            <div class="scroll-indicator" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </div>
-        </section>
-
-        <!-- 功能卡片区域 -->
-        <section class="feature-grid" role="region" aria-label="网站功能">
-            <div class="card feature-card" role="article" aria-labelledby="blog-title">
-                <div class="feature-card-content">
-                    <h2 id="blog-title" class="feature-card-title">雨夌的Blog</h2>
-                    <p class="feature-card-description">这是雨夌的博客，时不时会发布一些文章、教程和个人思考</p>
-                    <a href="/blog/" class="button primary feature-card-action" aria-label="访问雨夌的博客">去看看</a>
-                </div>
-            </div>
-
-            <div class="card feature-card" role="article" aria-labelledby="live-title">
-                <div class="feature-card-content">
-                    <h2 id="live-title" class="feature-card-title">雨夌的直播间</h2>
-                    <p class="feature-card-description">这是雨夌的直播间，没准现在就在直播呢，欢迎来互动</p>
-                    <a href="/live/" class="button primary feature-card-action" aria-label="访问雨夌的直播间" disabled>暂未开放</a>
-                </div>
-            </div>
-
-            <div class="card feature-card" role="article" aria-labelledby="alist-title">
-                <div class="feature-card-content">
-                    <h2 id="alist-title" class="feature-card-title">雨夌的Alist</h2>
-                    <p class="feature-card-description">这是雨夌的网盘，文件共享都在这，资源下载和分享中心</p>
-                    <a href="/alist/" class="button primary feature-card-action" aria-label="访问雨夌的网盘" disabled>暂未开放</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- 语义化页脚区域 -->
-    <footer id="footer" role="contentinfo"></footer>
-
-    <!-- JavaScript 加载 -->
-    <script src="/js/navbar.js" defer></script>
-    <script src="/js/footer.js" defer></script>
+    <!-- 引入路由脚本 -->
+    <script src="/js/router.js"></script>
+    <script>
+        // 动态加载组件
+        document.addEventListener('DOMContentLoaded', function() {
+            // 加载header
+            fetch('/components/header.html')
+                .then(response => response.text())
+                .then(html => document.getElementById('header-container').innerHTML = html);
+            
+            // 加载footer
+            fetch('/components/footer.html')
+                .then(response => response.text())
+                .then(html => document.getElementById('footer-container').innerHTML = html);
+            
+            // 加载menu
+            fetch('/components/menu.html')
+                .then(response => response.text())
+                .then(html => document.getElementById('menu-container').innerHTML = html);
+        });
+    </script>
 </body>
 </html>
