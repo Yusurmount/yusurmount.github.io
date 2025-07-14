@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaf OS - 开源声明</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Han+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main-styles.css">
+    <style>
+        .hero-section {
+            text-align: center;
+            padding: 40px 20px;
+            margin: 20px;
+        }
+        .table-container {
+            margin: 30px auto;
+            max-width: 800px;
+            overflow-x: auto;
+        }
+        .open-source-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #3d3d3d;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .open-source-table th,
+        .open-source-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #808080;
+        }
+        .open-source-table th {
+            background-color: #2d2d2d;
+            font-weight: bold;
+        }
+        .open-source-table tr:hover {
+            background-color: #2d2d2d;
+        }
+    </style>
+</head>
+<body>
+    <!-- 动态加载导航栏 -->
+    <div id="navbar"></div>
+
+    <div class="hero-section">
+        <!-- 此处内容由用户自定义 -->
+        <h1>开源软件声明</h1>
+        <div class="table-container">
+            <table class="open-source-table">
+                <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>许可证</th>
+                        <th>是否修改</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Leaf OS 5</td>
+                        <td>CC BY-NC-SA 4.0</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>Bootstrap 图标库</td>
+                        <td>MIT 许可证</td>
+                        <td>否</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 动态加载页脚 -->
+    <div id="footer"></div>
+
+    <!-- 引入外部 JavaScript 文件 -->
+    <script src="/js/navbar.js"></script>
+    <script src="/js/footer.js"></script>
+</body>
+</html>
