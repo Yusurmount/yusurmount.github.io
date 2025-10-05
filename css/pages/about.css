@@ -1,0 +1,78 @@
+/* 关于页面特定样式 */
+.about-section {
+    background-color: var(--surface-color);
+    border-radius: 1rem;
+    padding: 3rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.about-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-intro {
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+    line-height: 1.7;
+}
+
+.about-features {
+    margin-bottom: 2rem;
+}
+
+.features-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.features-list {
+    list-style: none;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: rgba(37, 99, 235, 0.05);
+    border-radius: 0.5rem;
+}
+
+.feature-item:hover {
+    background-color: rgba(37, 99, 235, 0.1);
+}
+
+.feature-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 1rem;
+    color: var(--primary-color);
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.about-mission {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.mission-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.mission-text {
+    font-size: 1.125rem;
+    line-height: 1.7;
+}

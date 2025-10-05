@@ -1,0 +1,174 @@
+/**
+ * 文档列表页面样式
+ */
+
+/* 文档区域 */
+.docs-section {
+    padding: 2rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* 文档介绍 */
+.docs-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+/* 文档分类 */
+.docs-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.category-card {
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.category-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    background-color: var(--primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+}
+
+.category-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.category-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.category-link {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.category-link:hover {
+    color: var(--primary-dark);
+}
+
+.category-link::after {
+    content: '→';
+    margin-left: 0.25rem;
+    transition: transform 0.3s ease;
+}
+
+.category-link:hover::after {
+    transform: translateX(3px);
+}
+
+/* 热门文档 */
+.popular-docs {
+    margin-top: 4rem;
+}
+
+.popular-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.popular-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.popular-item {
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.popular-item:hover {
+    transform: translateX(5px);
+}
+
+.popular-rank {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.popular-info {
+    flex-grow: 1;
+}
+
+.popular-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0 0 0.5rem 0;
+}
+
+.popular-name a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.popular-name a:hover {
+    color: var(--primary-color);
+}
+
+.popular-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.5;
+}

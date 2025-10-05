@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML基础教程 - 雨夌站</title>
+    <!-- 主CSS文件 -->
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 动态加载的组件容器 -->
+    <header id="header-container"></header>
+    <aside id="sidebar-container"></aside>
+
+    <!-- 主内容区 -->
+    <main class="main-container">
+        <div class="doc-layout">
+            <!-- 文档侧边导航 -->
+            <aside class="doc-sidebar">
+                <div class="doc-toc">
+                    <h3 class="toc-title">目录</h3>
+                    <ul class="toc-list">
+                        <li class="toc-item active"><a href="#intro">1. HTML简介</a></li>
+                        <li class="toc-item"><a href="#structure">2. HTML基本结构</a></li>
+                        <li class="toc-item"><a href="#tags">3. 常用HTML标签</a></li>
+                        <li class="toc-item"><a href="#attributes">4. HTML属性</a></li>
+                        <li class="toc-item"><a href="#links">5. 链接与图像</a></li>
+                        <li class="toc-item"><a href="#tables">6. 表格</a></li>
+                        <li class="toc-item"><a href="#forms">7. 表单</a></li>
+                        <li class="toc-item"><a href="#semantic">8. 语义化HTML</a></li>
+                        <li class="toc-item"><a href="#best-practices">9. 最佳实践</a></li>
+                    </ul>
+                </div>
+            </aside>
+            
+            <!-- 文档内容区域 -->
+            <section class="doc-content fade-in-up">
+                <div class="doc-header">
+                    <h1 class="doc-title">HTML基础教程</h1>
+                    <div class="doc-meta">
+                        <span class="doc-date">更新于: 2025-10-05</span>
+                        <span class="doc-category">前端开发</span>
+                    </div>
+                </div>
+                
+                <div class="doc-body">
+                    <!-- 1. HTML简介 -->
+                    <section id="intro" class="doc-section">
+                        <h2 class="section-heading">1. HTML简介</h2>
+                        <p>HTML（HyperText Markup Language，超文本标记语言）是用于创建网页的标准标记语言。它描述了网页的结构，并通过各种标签来标记内容的不同部分。</p>
+                        <p>HTML不是一种编程语言，而是一种标记语言，用于定义网页的结构和内容。它与CSS（用于样式）和JavaScript（用于交互）一起构成了现代网页开发的基础。</p>
+                    </section>
+                    
+                    <!-- 2. HTML基本结构 -->
+                    <section id="structure" class="doc-section">
+                        <h2 class="section-heading">2. HTML基本结构</h2>
+                        <p>一个基本的HTML文档包含以下部分：</p>
+                        <pre class="code-block"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-CN"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;页面标题&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    <!-- 页面内容 -->
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        <ul>
+                            <li><strong>&lt;!DOCTYPE html&gt;</strong>：声明文档类型和HTML版本</li>
+                            <li><strong>&lt;html&gt;</strong>：HTML文档的根元素</li>
+                            <li><strong>&lt;head&gt;</strong>：包含文档的元数据，如标题、字符集等</li>
+                            <li><strong>&lt;body&gt;</strong>：包含页面的可见内容</li>
+                        </ul>
+                    </section>
+                    
+                    <!-- 3. 常用HTML标签 -->
+                    <section id="tags" class="doc-section">
+                        <h2 class="section-heading">3. 常用HTML标签</h2>
+                        <p>HTML提供了许多标签来定义不同类型的内容。以下是一些最常用的HTML标签：</p>
+                        
+                        <h3>文本标签</h3>
+                        <ul>
+                            <li><strong>&lt;h1&gt; 到 &lt;h6&gt;</strong>：标题标签，从大到小</li>
+                            <li><strong>&lt;p&gt;</strong>：段落标签</li>
+                            <li><strong>&lt;br&gt;</strong>：换行标签</li>
+                            <li><strong>&lt;hr&gt;</strong>：水平线标签</li>
+                            <li><strong>&lt;strong&gt;</strong>：强调文本（粗体）</li>
+                            <li><strong>&lt;em&gt;</strong>：强调文本（斜体）</li>
+                        </ul>
+                        
+                        <h3>列表标签</h3>
+                        <ul>
+                            <li><strong>&lt;ul&gt;</strong>：无序列表</li>
+                            <li><strong>&lt;ol&gt;</strong>：有序列表</li>
+                            <li><strong>&lt;li&gt;</strong>：列表项</li>
+                        </ul>
+                    </section>
+                    
+                    <!-- 4. HTML属性 -->
+                    <section id="attributes" class="doc-section">
+                        <h2 class="section-heading">4. HTML属性</h2>
+                        <p>HTML标签可以包含属性，这些属性提供了关于元素的额外信息。属性总是在开始标签中指定，通常以名称/值对的形式出现（name="value"）。</p>
+                        <pre class="code-block"><code>&lt;a href="https://www.example.com" target="_blank"&gt;链接文本&lt;/a&gt;
+&lt;img src="image.jpg" alt="描述文本" width="300" height="200"&gt;</code></pre>
+                        <p>常见的通用属性包括：</p>
+                        <ul>
+                            <li><strong>id</strong>：为元素提供唯一标识符</li>
+                            <li><strong>class</strong>：为元素指定一个或多个类名</li>
+                            <li><strong>style</strong>：为元素指定内联样式</li>
+                            <li><strong>title</strong>：为元素提供额外信息（通常显示为工具提示）</li>
+                        </ul>
+                    </section>
+                    
+                    <!-- 更多章节... -->
+                    <section id="links" class="doc-section">
+                        <h2 class="section-heading">5. 链接与图像</h2>
+                        <p>链接和图像是网页的重要组成部分：</p>
+                        <pre class="code-block"><code>&lt;!-- 链接标签 --&gt;
+&lt;a href="https://www.example.com"&gt;访问示例网站&lt;/a&gt;
+
+&lt;!-- 图像标签 --&gt;
+&lt;img src="image.jpg" alt="示例图片"&gt;</code></pre>
+                    </section>
+                    
+                    <section id="tables" class="doc-section">
+                        <h2 class="section-heading">6. 表格</h2>
+                        <p>HTML表格用于显示表格数据：</p>
+                        <pre class="code-block"><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;表头1&lt;/th&gt;
+    &lt;th&gt;表头2&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;单元格1&lt;/td&gt;
+    &lt;td&gt;单元格2&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                    </section>
+                    
+                    <section id="forms" class="doc-section">
+                        <h2 class="section-heading">7. 表单</h2>
+                        <p>HTML表单用于收集用户输入：</p>
+                        <pre class="code-block"><code>&lt;form&gt;
+  &lt;label for="name"&gt;姓名：&lt;/label&gt;
+  &lt;input type="text" id="name" name="name"&gt;
+  
+  &lt;label for="email"&gt;邮箱：&lt;/label&gt;
+  &lt;input type="email" id="email" name="email"&gt;
+  
+  &lt;input type="submit" value="提交"&gt;
+&lt;/form&gt;</code></pre>
+                    </section>
+                    
+                    <section id="semantic" class="doc-section">
+                        <h2 class="section-heading">8. 语义化HTML</h2>
+                        <p>语义化HTML使用具有明确含义的标签来描述内容，这有助于提高可访问性、SEO和代码可维护性：</p>
+                        <ul>
+                            <li><strong>&lt;header&gt;</strong>：定义文档或节的页眉</li>
+                            <li><strong>&lt;nav&gt;</strong>：定义导航链接的部分</li>
+                            <li><strong>&lt;main&gt;</strong>：定义文档的主要内容</li>
+                            <li><strong>&lt;section&gt;</strong>：定义文档中的节</li>
+                            <li><strong>&lt;article&gt;</strong>：定义独立的自包含内容</li>
+                            <li><strong>&lt;footer&gt;</strong>：定义文档或节的页脚</li>
+                        </ul>
+                    </section>
+                    
+                    <section id="best-practices" class="doc-section">
+                        <h2 class="section-heading">9. 最佳实践</h2>
+                        <ul>
+                            <li>始终使用正确的DOCTYPE声明</li>
+                            <li>使用语义化HTML标签提高可访问性和SEO</li>
+                            <li>确保所有标签都正确闭合</li>
+                            <li>使用小写标签和属性名</li>
+                            <li>为所有图像提供alt属性</li>
+                            <li>正确嵌套HTML元素</li>
+                            <li>保持代码简洁和有组织</li>
+                        </ul>
+                    </section>
+                </div>
+                
+                <!-- 文档导航 -->
+                <div class="doc-navigation">
+                    <div class="doc-nav-prev">
+                        <span class="nav-label">上一篇</span>
+                        <span class="nav-text">暂无</span>
+                    </div>
+                    <div class="doc-nav-next">
+                        <span class="nav-label">下一篇</span>
+                        <a href="/docs/frontend/css-basics/index.html" class="nav-text">CSS样式入门</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚容器 -->
+    <div id="footer-container"></div>
+
+    <!-- JavaScript 代码 -->
+    <script src="/js/docs.js"></script>
+</body>
+</html>

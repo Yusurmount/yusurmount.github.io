@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雨夌站 - 文档</title>
+    <!-- 主CSS文件 -->
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 动态加载的组件容器 -->
+    <header id="header-container"></header>
+    <aside id="sidebar-container"></aside>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <!-- 侧边栏容器 -->
+        <aside id="sidebar-container"></aside>
+        
+        <!-- 文档内容区域 -->
+        <section class="docs-section">
+            <div class="section-header">
+                <h1 class="section-title">技术文档</h1>
+                <p class="section-description">系统化整理的技术知识，帮助你快速学习和掌握各种开发技能</p>
+            </div>
+            
+            <!-- 文档分类 -->
+            <div class="doc-categories">
+                <h2 class="category-title">文档分类</h2>
+                <div class="category-grid">
+                    <!-- 前端开发 -->
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="category-content">
+                            <h3 class="category-name">前端开发</h3>
+                            <p class="category-desc">HTML、CSS、JavaScript等Web前端技术</p>
+                            <a href="#frontend" class="category-link">查看文档</a>
+                        </div>
+                    </div>
+                    
+                    <!-- 后端开发 -->
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="category-content">
+                            <h3 class="category-name">后端开发</h3>
+                            <p class="category-desc">服务端开发、API设计、数据库等技术</p>
+                            <a href="#backend" class="category-link">查看文档</a>
+                        </div>
+                    </div>
+                    
+                    <!-- 移动开发 -->
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="category-content">
+                            <h3 class="category-name">移动开发</h3>
+                            <p class="category-desc">iOS、Android和跨平台应用开发技术</p>
+                            <a href="#mobile" class="category-link">查看文档</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 前端开发文档 -->
+            <div id="frontend" class="doc-section">
+                <h2 class="section-subtitle">前端开发</h2>
+                <div class="doc-list">
+                    <div class="doc-item">
+                        <div class="doc-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <div class="doc-info">
+                            <h3 class="doc-title"><a href="/docs/frontend/html-basics/index.html">HTML基础教程</a></h3>
+                            <p class="doc-desc">HTML基础知识、标签、表单、语义化等内容</p>
+                            <div class="doc-meta">
+                                <span class="doc-level">初级</span>
+                                <span class="doc-length">9个章节</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="doc-item">
+                        <div class="doc-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <div class="doc-info">
+                            <h3 class="doc-title"><a href="/docs/frontend/css-basics/index.html">CSS基础教程</a></h3>
+                            <p class="doc-desc">CSS选择器、样式属性、布局技术等内容</p>
+                            <div class="doc-meta">
+                                <span class="doc-level">初级</span>
+                                <span class="doc-length">8个章节</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="doc-item">
+                        <div class="doc-icon">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <div class="doc-info">
+                            <h3 class="doc-title"><a href="/docs/frontend/js-basics/index.html">JavaScript基础教程</a></h3>
+                            <p class="doc-desc">JavaScript语法、变量、函数、对象等基础知识</p>
+                            <div class="doc-meta">
+                                <span class="doc-level">初级</span>
+                                <span class="doc-length">10个章节</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 热门文档 -->
+            <div class="popular-docs">
+                <h2 class="popular-title">热门文档</h2>
+                <div class="popular-list">
+                    <div class="popular-item">
+                        <div class="popular-rank">1</div>
+                        <div class="popular-info">
+                            <h3 class="popular-name"><a href="/docs/frontend/html-basics/index.html">HTML基础教程</a></h3>
+                            <p class="popular-desc">掌握HTML基础知识，搭建网页结构的第一步</p>
+                        </div>
+                    </div>
+                    
+                    <div class="popular-item">
+                        <div class="popular-rank">2</div>
+                        <div class="popular-info">
+                            <h3 class="popular-name"><a href="/docs/frontend/js-basics/index.html">JavaScript基础教程</a></h3>
+                            <p class="popular-desc">学习JavaScript编程基础，开启交互开发之旅</p>
+                        </div>
+                    </div>
+                    
+                    <div class="popular-item">
+                        <div class="popular-rank">3</div>
+                        <div class="popular-info">
+                            <h3 class="popular-name"><a href="/docs/frontend/css-basics/index.html">CSS基础教程</a></h3>
+                            <p class="popular-desc">了解CSS样式规则，美化你的网页界面</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚容器 -->
+    <footer id="footer-container"></footer>
+
+    <!-- JavaScript 代码 -->
+    <script src="/js/docs.js"></script>
+</body>
+</html>

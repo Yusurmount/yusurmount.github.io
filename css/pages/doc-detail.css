@@ -1,0 +1,227 @@
+/**
+ * 文档详情页面样式
+ */
+
+/* 文档布局 */
+.doc-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* 文档侧边导航 */
+.doc-sidebar {
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+    align-self: start;
+}
+
+.doc-toc {
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.toc-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-item {
+    margin-bottom: 0.75rem;
+}
+
+.toc-item a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.toc-item a:hover {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
+
+.toc-item.active a {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* 文档内容区域 */
+.doc-content {
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.doc-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.doc-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 1rem 0;
+    line-height: 1.3;
+}
+
+.doc-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* 文档主体内容 */
+.doc-body {
+    color: var(--text-color);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.doc-section {
+    margin-bottom: 3rem;
+    scroll-margin-top: 2rem;
+}
+
+.section-heading {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-light);
+}
+
+.doc-body p {
+    margin-bottom: 1.5rem;
+}
+
+.doc-body h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 2rem 0 1rem 0;
+}
+
+.doc-body ul,
+.doc-body ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.doc-body li {
+    margin-bottom: 0.5rem;
+}
+
+.doc-body strong {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* 代码块样式 */
+.code-block {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+    border-left: 4px solid var(--primary-color);
+}
+
+.code-block code {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* 文档导航 */
+.doc-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.doc-nav-prev,
+.doc-nav-next {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.nav-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.nav-text {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.nav-text a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-text a:hover {
+    color: var(--primary-dark);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .doc-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .doc-sidebar {
+        position: relative;
+        top: 0;
+        margin-bottom: 2rem;
+    }
+    
+    .doc-content {
+        padding: 1.5rem;
+    }
+    
+    .doc-title {
+        font-size: 1.75rem;
+    }
+    
+    .section-heading {
+        font-size: 1.5rem;
+    }
+    
+    .doc-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

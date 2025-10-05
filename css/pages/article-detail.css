@@ -1,0 +1,154 @@
+/**
+ * 文章详情页面样式
+ */
+
+/* 文章详情区域 */
+.article-detail-section {
+    padding: 2rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 文章内容样式 */
+.article-content {
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.article-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.article-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 1rem 0;
+    line-height: 1.3;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.article-date, .article-category {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* 文章正文样式 */
+.article-body {
+    color: var(--text-color);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.article-body p {
+    margin-bottom: 1.5rem;
+}
+
+.article-body h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 2rem 0 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-light);
+}
+
+.article-body ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.article-body li {
+    margin-bottom: 0.5rem;
+}
+
+.article-body strong {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* 文章导航 */
+.article-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.article-nav-prev, .article-nav-next {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.nav-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.nav-text {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* 文章相关推荐 */
+.article-related {
+    margin-top: 3rem;
+}
+
+.related-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.related-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.related-item {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.related-item:hover {
+    transform: translateY(-2px);
+}
+
+.related-item-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.related-item-title a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.related-item-title a:hover {
+    color: var(--primary-color);
+}

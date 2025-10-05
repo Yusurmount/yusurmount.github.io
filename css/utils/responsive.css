@@ -1,0 +1,45 @@
+/* 响应式设计 */
+@media (max-width: 768px) {
+    /* 全局响应式 */
+    .main-container,
+    .main-content {
+        padding: 1.5rem 1rem;
+    }
+    
+    /* 导航响应式 */
+    .nav-desktop {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    /* 主页响应式 */
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1.125rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* 关于页面响应式 */
+    .about-section {
+        padding: 2rem 1rem;
+    }
+    
+    .about-title {
+        font-size: 1.75rem;
+    }
+    
+    /* 页脚响应式 */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雨夌站 - 文章</title>
+    <!-- 主CSS文件 -->
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 动态加载的组件容器 -->
+    <header id="header-container"></header>
+    <aside id="sidebar-container"></aside>
+
+    <!-- 主内容区 -->
+    <main class="main-container">
+        <section class="article-section fade-in-up">
+            <h1 class="section-title">文章列表</h1>
+            
+            <!-- 文章过滤区域 -->
+            <div class="article-filters">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">全部</button>
+                    <button class="filter-tab" data-filter="tech">技术</button>
+                    <button class="filter-tab" data-filter="blog">博客</button>
+                    <button class="filter-tab" data-filter="news">公告</button>
+                </div>
+                <div class="search-container">
+                    <input type="text" id="article-search" placeholder="搜索文章...">
+                    <button id="search-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 文章列表 -->
+            <div class="article-list">
+                <!-- 示例文章项 -->
+                <article class="article-item fade-in-up" style="animation-delay: 0.1s">
+                    <div class="article-preview">
+                        <h2 class="article-item-title"><a href="/article/welcome/index.html">欢迎来到雨夌站</a></h2>
+                        <div class="article-item-meta">
+                            <span class="article-item-date">2025-10-05</span>
+                            <span class="article-item-category">公告</span>
+                        </div>
+                        <p class="article-item-excerpt">
+                            雨夌站正在重建中，这是一个个人博客、文档与项目展示网站。本站采用Material Design 3设计风格，以蓝色为主色调，注重用户体验与视觉效果。
+                        </p>
+                    </div>
+                </article>
+                
+                <!-- 更多文章项将在这里动态加载 -->
+            </div>
+            
+            <!-- 分页 -->
+            <div class="pagination">
+                <button class="page-button disabled">上一页</button>
+                <button class="page-button active">1</button>
+                <button class="page-button disabled">下一页</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚容器 -->
+    <div id="footer-container"></div>
+
+    <!-- JavaScript 代码 -->
+    <script src="/js/index.js"></script>
+</body>
+</html>
