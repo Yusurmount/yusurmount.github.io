@@ -148,7 +148,7 @@
 }
 
 .project-link:hover {
-    background-color: var(--primary-dark);
+    background-color: var(--background-color);
     transform: translateX(5px);
 }
 

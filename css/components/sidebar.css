@@ -55,7 +55,7 @@
 }
 
 .sidebar-link:hover {
-    background-color: rgba(37, 99, 235, 0.1);
+    background-color: rgba(63, 134, 246, 0.1);
     color: var(--primary-color);
 }
 

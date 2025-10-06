@@ -1,0 +1,21 @@
+- --primary-color: rgb(63, 134, 246)
+- --primary-light: rgba(63, 134, 246, 0.8)
+- --primary-dark: rgb(41, 98, 255)
+- --secondary-color: rgba(63, 134, 246, 0.7)
+- --secondary-dark: rgb(41, 98, 255)
+- --secondary-light: rgba(63, 134, 246, 0.15)
+- --success-color: #38a169
+- --success-light: #c6f6d5
+- --danger-color: #e53e3e
+- --danger-light: #fed7d7
+- --warning-color: #ed8936
+- --warning-light: #fed7d7
+- --info-color: #3182ce
+- --info-light: #bee3f8
+- --background-color: #ffffff
+- --surface-color: rgba(255, 255, 255, 0.9)
+- --text-color: #2d3748
+- --text-primary: #1e293b
+- --text-secondary: #64748b
+- --text-light: #94a3b8
+- --border-color: #e2e8f0

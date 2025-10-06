@@ -1,59 +1,86 @@
-# 测试文档
+# 测试文档，一级标题
+这是正文
 
-这是一个用于测试文档模块动态加载功能的示例文档。
+---
 
-## 1. 介绍
+## 测试1
 
-这个测试文档展示了DOCS模块的动态加载机制。通过这种机制，我们可以实现文档内容的按需加载，提高页面加载性能。
+[链接文本](https://example.com)
 
-动态加载机制的核心是使用JavaScript异步加载HTML内容，并将其插入到页面的特定容器中。
+![图片描述](https://example.com/image.jpg)
 
-## 2. 功能特点
+> 这是引用
 
-- **按需加载：** 只有在用户访问特定页面时才加载对应的文档内容
-- **组件复用：** 共享header、footer、sidebar等公共组件
-- **平滑过渡：** 加载内容时应用淡入动画效果
-- **错误处理：** 当文档不存在时显示友好的错误信息
+## 测试2
+这是第二节
+### 测试2.1
 
-## 3. 使用方法
+> 123abc
 
-使用文档模块非常简单，只需按照以下步骤操作：
+### 测试2.2
 
-1. 在浏览器中访问文档页面
-2. 从文档列表中选择您感兴趣的文档
-3. 阅读文档内容，可以使用目录快速导航
-4. 点击页面顶部或侧边栏的导航链接返回其他页面
+这是一个段落，包含**加粗**和*斜体*文本。
 
-## 4. 示例代码
+- 无序列表项1
+- 无序列表项2
+- 无序列表项3
 
-以下是实现文档动态加载的核心JavaScript代码示例：
+1. 有序列表项1
+2. 有序列表项2
+3. 有序列表项3
 
-```javascript
-// 加载文档内容
-async function loadDocContent(docPath) {
-    try {
-        const fullDocPath = `/context${docPath}.html`;
-        await loadComponent(fullDocPath, 'doc-content-container');
-        
-        const docContent = document.querySelector('.doc-content');
-        if (docContent) {
-            docContent.classList.add('fade-in-up');
-        }
-    } catch (error) {
-        console.error(`Failed to load document content: ${error}`);
-        // 显示错误信息
-    }
-}
 
-// 初始化文档页面
-async function initializeDocsPage() {
-    await loadAllComponents();
-    setupMenuEvents();
-    
-    const docPath = getDocPathFromUrl();
-    await loadDocContent(docPath);
-    
-    setupTocScrollSpy();
-    setupSmoothScroll();
-}
-```
+## 表格测试
+ 
+Item     | Value
+-------- | ---
+Computer | \$1600
+Phone    | \$12
+Pipe     | \$1
+ 
+可以指定对齐方式, 如Item列左对齐, Value列右对齐, Qty列居中对齐
+ 
+| Item     | Value | Qty   |
+| :------- | ----: | :---: |
+| Computer | \$1600 |  5    |
+| Phone    | \$12   |  12   |
+| Pipe     | \$1    |  234  |
+
+
+## Html 标签测试
+ 
+支持在 Markdown 语法中嵌套 Html 标签，譬如，你可以用 Html 写一个纵跨两行的表格：
+ 
+    <table>
+        <tr>
+            <th rowspan="2">值班人员</th>
+            <th>星期一</th>
+            <th>星期二</th>
+            <th>星期三</th>
+        </tr>
+        <tr>
+            <td>李强</td>
+            <td>张明</td>
+            <td>王平</td>
+        </tr>
+    </table>
+ 
+ 
+<table>
+    <tr>
+        <th rowspan="2">值班人员</th>
+        <th>星期一</th>
+        <th>星期二</th>
+        <th>星期三</th>
+    </tr>
+    <tr>
+        <td>李强</td>
+        <td>张明</td>
+        <td>王平</td>
+    </tr>
+</table>
+ 
+**提示**, 如果想对图片的宽度和高度进行控制, 你也可以通过img标签, 如:
+ 
+<img src="http://leanote.com/images/logo/leanote_icon_blue.png" width="50px" />
+ 

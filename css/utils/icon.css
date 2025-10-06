@@ -1,0 +1,89 @@
+/* 图标尺寸样式 - 确保图标根据使用场景适配调整 */
+
+/* 基础图标尺寸类 */
+.icon-xs {
+    font-size: 0.75rem; /* 12px */
+}
+
+.icon-sm {
+    font-size: 1rem; /* 16px */
+}
+
+.icon-md {
+    font-size: 1.5rem; /* 24px */
+}
+
+.icon-lg {
+    font-size: 2rem; /* 32px */
+}
+
+.icon-xl {
+    font-size: 2.5rem; /* 40px */
+}
+
+.icon-2xl {
+    font-size: 3rem; /* 48px */
+}
+
+/* 特定场景图标尺寸优化 */
+
+/* 功能卡片图标 */
+.feature-icon {
+    font-size: 2.5rem; /* 40px */
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 联系方式图标 */
+.method-icon i {
+    font-size: 1.5rem; /* 24px */
+}
+
+/* 项目链接图标 */
+.project-link i {
+    font-size: 0.9rem; /* 14px */
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover i {
+    transform: translateX(3px);
+}
+
+/* 社交媒体图标 */
+.social-link i {
+    font-size: 1.25rem; /* 20px */
+    margin-right: 0.5rem;
+}
+
+/* 导航图标 */
+.nav-icon {
+    font-size: 1.25rem; /* 20px */
+    margin-right: 0.5rem;
+}
+
+/* 按钮图标 */
+.btn-icon {
+    font-size: 1rem; /* 16px */
+    margin-right: 0.5rem;
+}
+
+/* 表单图标 */
+.form-icon {
+    font-size: 1.125rem; /* 18px */
+    color: var(--text-secondary);
+}
+
+/* 通知图标 */
+.notification-icon {
+    font-size: 1.25rem; /* 20px */
+    position: relative;
+}
+
+/* 状态图标 */
+.status-icon {
+    font-size: 0.875rem; /* 14px */
+    margin-right: 0.25rem;
+}

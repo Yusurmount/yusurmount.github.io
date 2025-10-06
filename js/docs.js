@@ -251,6 +251,20 @@ function setupMenuEvents() {
  */
 async function loadDocContent(docPath) {
     try {
+        console.log('loadDocContent called with docPath:', docPath);
+        
+        // 如果是文档列表页面或路径格式不正确，不加载单个文档
+        if (!docPath || docPath === '/docs' || docPath === '/docs/index' || docPath === '/' || docPath.endsWith('/')) {
+            console.log(`Skipping document content load for invalid or list page path: ${docPath}`);
+            return;
+        }
+        
+        // 确保docPath包含有效的文档名称
+        if (docPath === '/docs/' || docPath === '/context/docs/' || docPath === '/context/docs' || docPath.split('/').length <= 2) {
+            console.log(`Skipping document content load for path without valid doc name: ${docPath}`);
+            return;
+        }
+        
         // 加载Markdown文件
         const markdownPath = `/context${docPath}.md`;
         console.log(`Attempting to load Markdown document from path: ${markdownPath}`);
@@ -386,27 +400,37 @@ function generateTableOfContents() {
  */
 function getDocPathFromUrl() {
     // 从URL路径中提取文档路径
-    // 路径格式: /docs/[doc-name]/index.html 或 /docs/index.html
+    // 路径格式: /docs/[doc-name]/index.html 或 /docs/index.html 或 /docs/
     const pathParts = window.location.pathname.split('/');
     // 查找'docs'在路径中的位置
     const docsIndex = pathParts.indexOf('docs');
     
-    if (docsIndex !== -1 && pathParts.length > docsIndex + 1) {
+    console.log('getDocPathFromUrl - pathParts:', pathParts);
+    console.log('getDocPathFromUrl - docsIndex:', docsIndex);
+    
+    if (docsIndex !== -1) {
         // 构建文档路径，排除最后的'index.html'
         const docParts = pathParts.slice(docsIndex + 1);
-        // 移除可能的'index.html'
-        const cleanParts = docParts.filter(part => part !== 'index.html');
+        // 移除可能的'index.html'和空字符串
+        const cleanParts = docParts.filter(part => part !== 'index.html' && part !== '');
         
-        // 如果清理后的部分为空，说明访问的是/docs/index.html
+        console.log('getDocPathFromUrl - docParts:', docParts);
+        console.log('getDocPathFromUrl - cleanParts:', cleanParts);
+        
+        // 如果清理后的部分为空，说明访问的是/docs/index.html或/docs/
         if (cleanParts.length === 0) {
+            console.log('getDocPathFromUrl - returning /docs/index for empty cleanParts');
             return '/docs/index';
         }
         
         // 确保路径以'docs'开头，与context/docs结构匹配
-        return `/docs/${cleanParts.join('/')}`;
+        const result = `/docs/${cleanParts.join('/')}`;
+        console.log('getDocPathFromUrl - returning result:', result);
+        return result;
     }
     
     // 默认返回文档首页
+    console.log('getDocPathFromUrl - returning default /docs/index');
     return '/docs/index';
 }
 
@@ -505,12 +529,17 @@ async function initializeDocsPage() {
         console.log('Getting document path from URL...');
         const docPath = getDocPathFromUrl();
         console.log(`Document path extracted: ${docPath}`);
+        console.log(`Document path type: ${typeof docPath}`);
+        console.log(`Is docPath === '/docs/index': ${docPath === '/docs/index'}`);
+        console.log(`Is docPath === '/docs': ${docPath === '/docs'}`);
         
         // 判断是否为文档列表页面
-        if (docPath === '/docs/index') {
+        if (docPath === '/docs/index' || docPath === '/docs') {
             console.log('Initializing document list page...');
             // 获取文档列表
             const allDocs = await fetchDocList();
+            
+            console.log('Fetched doc list:', allDocs);
             
             // 设置加载更多功能
             setupLoadMoreDocs(allDocs, 10);

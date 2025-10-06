@@ -1,12 +1,12 @@
 /* Material Design 3 基础样式 - 蓝色主题，明亮模式 */
 :root {
     /* 颜色变量 */
-    --primary-color: #2563eb;
-    --primary-light: #60a5fa;
-    --primary-dark: #1d4ed8;
-    --secondary-color: #6b46c1;
-    --secondary-dark: #553c9a;
-    --secondary-light: #e9d8fd;
+    --primary-color: rgb(63, 134, 246);
+    --primary-light: rgba(63, 134, 246, 0.8);
+    --primary-dark: rgb(41, 98, 255);
+    --secondary-color: rgba(63, 134, 246, 0.7);
+    --secondary-dark: rgb(41, 98, 255);
+    --secondary-light: rgba(63, 134, 246, 0.15);
     --success-color: #38a169;
     --success-light: #c6f6d5;
     --danger-color: #e53e3e;

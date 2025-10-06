@@ -62,7 +62,7 @@
 
 .toc-item.active a {
     background-color: var(--primary-light);
-    color: var(--primary-color);
+    color: rgba(255, 255, 255, 1);
     font-weight: 500;
 }
 

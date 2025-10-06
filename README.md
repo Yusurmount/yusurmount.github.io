@@ -1,29 +1,60 @@
-# 雨夌站
-计划重建中
+# 雨夌站个人网站
 
-# 驱动
-- github pages
+这是一个基于HTML、CSS和JavaScript开发的个人网站，用于展示个人信息、项目作品和联系方式。
 
-# 结构
-- 主页（/index.html）
-- 关于（/about.html）
-- DOCS （/docs/index.html）(/docs/[doc-name]/index.html)
-- 文章（/article/index.html）(/article/[article-name]/index.html) 【动态加载】
-- 项目（/project/[project-name]/index.html）
-- 联系（/contact/index.html）(/contact/[contact-way]/index.html)
-- 动态加载 （/context/*）
+## 项目介绍
+雨夌站是一个现代化的个人展示平台，包含首页、关于、项目中心、文档和联系等多个功能模块，采用响应式设计，适配各种设备屏幕。
 
-# 主题
-- Material Design 3（不使用外部css）
-- 明亮模式
-- 蓝色
-- 要有动画
+## 功能特性
+- 简洁美观的用户界面
+- 响应式设计，支持移动端和桌面端
+- 项目作品展示
+- 个人信息介绍
+- 联系表单和联系方式
+- 文章和文档系统
 
-# 动态加载内容
-- 页眉、页脚（/context/header.html）(/context/footer.html）
-- 侧边菜单（/context/sidebar.html）
-- 文章（/context/article/[article-name].html）
+## 目录结构
+```
+yusurmount.github.io/
+├── index.html         # 首页
+├── about.html         # 关于页面
+├── project/           # 项目中心
+│   └── index.html
+├── docs/              # 文档页面
+│   └── index.html
+├── contact/           # 联系页面
+│   └── index.html
+├── css/               # 样式文件
+│   ├── main.css       # 主样式
+│   ├── pages/         # 页面样式
+│   ├── components/    # 组件样式
+│   └── utils/         # 工具样式
+├── js/                # JavaScript文件
+├── context/           # 页面上下文内容
+└── media/             # 媒体资源
+```
 
-# 文章
-将markdown文档动态加载到文章页面中
+## 🛠 技术栈
+- HTML5
+- CSS3 (使用CSS变量实现主题管理)
+- JavaScript (原生JS)
+- Bootstrap 图标库
+- 响应式设计
 
+## 🎨 主题色彩
+- 主色调：蓝色系 (rgb(63, 134, 246))
+- 辅助色：浅蓝、深蓝等变体
+- 中性色：白色、浅灰、深灰
+
+## 🔧 开发说明
+- 样式文件采用模块化设计
+- 使用CSS变量统一管理颜色和尺寸
+- 页面组件化，便于维护
+- 支持响应式布局，适配不同屏幕尺寸
+
+## 📝 备注
+- 网站图标使用Bootstrap Icons库
+- 项目持续更新中，欢迎提出建议和反馈
+
+## 📄 许可证
+MIT License

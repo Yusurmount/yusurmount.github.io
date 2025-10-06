@@ -212,7 +212,7 @@ function createMockProjectCards() {
                 <div class="project-overlay">
                     <div class="overlay-content">
                         <a href="#" class="project-link">
-                            <i class="fas fa-external-link-alt"></i>
+                            <i class="bi bi-box-arrow-up-right"></i>
                             查看详情
                         </a>
                     </div>
