@@ -308,22 +308,7 @@ async function loadDocContent(docPath) {
                     }
                 }
                 
-                // 为所有标题添加ID，以便目录导航
-                const headings = container.querySelectorAll('h2, h3, h4, h5, h6');
-                headings.forEach((heading, index) => {
-                    if (!heading.id) {
-                        // 创建一个基于标题文本的ID
-                        const id = heading.textContent.trim()
-                            .toLowerCase()
-                            .replace(/[^\w\s-]/g, '') // 移除特殊字符
-                            .replace(/\s+/g, '-') // 替换空格为连字符
-                            .replace(/-+/g, '-'); // 替换多个连字符为单个连字符
-                        
-                        heading.id = id;
-                    }
-                });
-                
-                // 生成目录
+                // 生成目录（不再使用索引，直接使用DOM引用）
                 generateTableOfContents();
                 
                 // 为文档内容添加动画效果
@@ -358,6 +343,7 @@ async function loadDocContent(docPath) {
 
 /**
  * 生成文档目录
+ * 使用直接DOM引用，避免ID或索引定位问题
  */
 function generateTableOfContents() {
     const tocContainer = document.getElementById('generated-toc');
@@ -374,17 +360,22 @@ function generateTableOfContents() {
     tocContainer.innerHTML = '';
     
     // 为每个标题创建目录项
-    headings.forEach((heading, index) => {
+    headings.forEach((heading) => {
         const level = parseInt(heading.tagName.substring(1)) - 1; // h2 -> level 1, h3 -> level 2, etc.
-        const id = heading.id || `section-${index}`;
         const text = heading.textContent;
         
-        // 创建目录项
+        // 创建目录项，使用直接引用而不是索引
         const tocItem = document.createElement('li');
         tocItem.className = `toc-item level-${level}`;
-        tocItem.innerHTML = `<a href="#${id}">${text}</a>`;
+        const link = document.createElement('a');
+        link.href = '#';
+        link.textContent = text;
+        link.className = 'toc-link';
         
-        // 添加到目录
+        // 存储对标题的直接引用
+        link._targetHeading = heading;
+        
+        tocItem.appendChild(link);
         tocContainer.appendChild(tocItem);
     });
 }
@@ -421,32 +412,39 @@ function getDocPathFromUrl() {
 
 /**
  * 设置文档目录的滚动监听
- * 高亮当前阅读的章节
+ * 高亮当前阅读的章节，使用直接DOM引用
  */
 function setupTocScrollSpy() {
-    const sections = document.querySelectorAll('.doc-section');
     const tocItems = document.querySelectorAll('.toc-item');
     
     // 处理滚动事件
     function handleScroll() {
-        let current = '';
+        let currentHeading = null;
+        let currentTocItem = null;
         
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
+        // 遍历所有目录项
+        tocItems.forEach(item => {
+            const link = item.querySelector('a.toc-link');
+            if (!link || !link._targetHeading) return;
             
-            if (pageYOffset >= sectionTop - 200) {
-                current = '#' + section.getAttribute('id');
+            const heading = link._targetHeading;
+            const headingTop = heading.offsetTop;
+            
+            // 检查当前滚动位置是否超过此标题
+            if (pageYOffset >= headingTop - 200) {
+                currentHeading = heading;
+                currentTocItem = item;
             }
         });
         
         // 更新目录项的活动状态
         tocItems.forEach(item => {
             item.classList.remove('active');
-            if (item.querySelector('a').getAttribute('href') === current) {
-                item.classList.add('active');
-            }
         });
+        
+        if (currentTocItem) {
+            currentTocItem.classList.add('active');
+        }
     }
     
     // 添加滚动事件监听
@@ -458,24 +456,30 @@ function setupTocScrollSpy() {
 
 /**
  * 平滑滚动到锚点位置
+ * 使用直接DOM引用，避免ID或索引定位问题
  */
 function setupSmoothScroll() {
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    
-    anchorLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
+    // 使用事件委托处理动态生成的目录链接
+    document.addEventListener('click', function(e) {
+        // 检查点击的是否是目录链接
+        const link = e.target.closest('a.toc-link');
+        if (!link) return;
+        
+        // 阻止默认行为
+        e.preventDefault();
+        
+        // 使用存储的直接引用获取目标标题
+        const targetHeading = link._targetHeading;
+        
+        if (targetHeading) {
+            window.scrollTo({
+                top: targetHeading.offsetTop - 100,
+                behavior: 'smooth'
+            });
             
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 100,
-                    behavior: 'smooth'
-                });
-            }
-        });
+            // 更新URL，但不刷新页面
+            history.pushState(null, null, '#');
+        }
     });
 }
 

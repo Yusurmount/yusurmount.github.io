@@ -6,7 +6,9 @@
 .doc-layout {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 5rem;
+    padding: 2rem 2rem;
+    display: flex;
+    gap: 2rem;
 }
 
 /* 文档侧边导航 */
@@ -15,6 +17,8 @@
     top: 2rem;
     height: fit-content;
     align-self: start;
+    width: 250px;
+    flex-shrink: 0;
 }
 
 .doc-toc {
@@ -68,8 +72,9 @@
     border-radius: 12px;
     padding: 2rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    flex-grow: 1;
+    max-width: 800px;
     margin: 0 auto;
-    max-width: 100%;
 }
 
 .doc-header {
@@ -200,16 +205,21 @@
 @media (max-width: 768px) {
     .doc-layout {
         padding: 2rem 1rem;
+        flex-direction: column;
+        justify-content: center;
     }
     
     .doc-sidebar {
         position: relative;
         top: 0;
         margin-bottom: 2rem;
+        width: 100%;
     }
     
     .doc-content {
         padding: 1.5rem;
+        max-width: 100%;
+        width: 100%;
     }
     
     .doc-title {

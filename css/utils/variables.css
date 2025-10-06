@@ -16,12 +16,17 @@
     --info-color: #3182ce;
     --info-light: #bee3f8;
     --background-color: #ffffff;
-    --surface-color: #ffffff;
+    --surface-color: rgba(255, 255, 255, 0.9);
     --text-color: #2d3748;
     --text-primary: #1e293b;
     --text-secondary: #64748b;
     --text-light: #94a3b8;
     --border-color: #e2e8f0;
+    
+    /* 透明度变量 */
+    --opacity-light: 0.95;
+    --opacity-medium: 0.9;
+    --opacity-heavy: 0.85;
     
     /* 阴影 */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
