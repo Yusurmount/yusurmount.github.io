@@ -1,4 +1,4 @@
-# 雨夌站个人网站
+# 雨夌站
 
 这是一个基于HTML、CSS和JavaScript开发的个人网站，用于展示个人信息、项目作品和联系方式。
 
@@ -57,4 +57,7 @@ yusurmount.github.io/
 - 项目持续更新中，欢迎提出建议和反馈
 
 ## 📄 许可证
-MIT License
+GNU AGPLv3
+
+2025 © 雨夌. 版权所有.
+
