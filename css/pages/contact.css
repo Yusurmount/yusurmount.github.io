@@ -17,12 +17,6 @@
     text-align: center;
 }
 
-/* 联系内容布局 */
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
 
 /* 联系信息卡片 */
 .contact-info {
@@ -90,7 +84,7 @@
 
 .method-link:hover {
     color: var(--primary-dark);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .method-text {

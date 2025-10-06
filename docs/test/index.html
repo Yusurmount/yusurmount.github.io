@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>雨夌站 - 文章</title>
+    <title>测试文档 - 雨夌站</title>
     <!-- CSS文件 -->
     <link rel="stylesheet" href="/css/utils/reset.css">
     <link rel="stylesheet" href="/css/utils/variables.css">
@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="/css/components/header.css">
     <link rel="stylesheet" href="/css/components/sidebar.css">
     <link rel="stylesheet" href="/css/components/footer.css">
-    <link rel="stylesheet" href="/css/pages/article.css">
+    <link rel="stylesheet" href="/css/pages/docs.css">
+    <link rel="stylesheet" href="/css/pages/doc-detail.css">
     
     <!-- 主CSS文件 -->
     <link rel="stylesheet" href="/css/main.css">
@@ -25,34 +26,19 @@
     <aside id="sidebar-container"></aside>
 
     <!-- 主内容区 -->
-    <main class="main-container">
-        <section class="article-section fade-in-up">
-            <h1 class="section-title">文章列表</h1>
-            
-            
-            <!-- 文章列表 -->
-            <div class="article-list">
-                <!-- 文章项将通过JavaScript动态加载 -->
-            </div>
-            
-            <!-- 加载更多按钮 -->
-            <button class="load-more-button fade-in-up" style="animation-delay: 0.2s">下一页</button>
+    <main class="main-content">
+        <!-- 文档内容区域 -->
+        <section class="docs-section">
+            <!-- 动态加载文档内容的容器 -->
+            <div id="doc-content-container"></div>
         </section>
     </main>
 
     <!-- 页脚容器 -->
-    <div id="footer-container"></div>
+    <footer id="footer-container"></footer>
 
     <!-- JavaScript 代码 -->
-    <script src="/js/article.js"></script>
-    <script>
-        // 页面加载完成后执行初始化
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializeArticleListPage);
-        } else {
-            // 如果DOM已经加载完成，直接执行初始化
-            initializeArticleListPage();
-        }
-    </script>
+    <script src="/js/marked.min.js"></script>
+    <script src="/js/docs.js"></script>
 </body>
 </html>

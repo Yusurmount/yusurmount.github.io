@@ -78,35 +78,6 @@
     color: var(--text-color);
 }
 
-/* 文章导航 */
-.article-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background-color: var(--surface-color);
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.article-nav-prev, .article-nav-next {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
-.nav-label {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    font-weight: 500;
-}
-
-.nav-text {
-    font-size: 0.9rem;
-    color: var(--text-color);
-    font-weight: 500;
-}
-
 /* 文章相关推荐 */
 .article-related {
     margin-top: 3rem;

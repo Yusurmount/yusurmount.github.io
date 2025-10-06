@@ -36,10 +36,4 @@
     .about-title {
         font-size: 1.75rem;
     }
-    
-    /* 页脚响应式 */
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
 }

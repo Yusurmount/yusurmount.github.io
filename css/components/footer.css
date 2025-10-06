@@ -1,8 +1,7 @@
 /* 页脚样式 */
 .footer {
     background-color: var(--surface-color);
-    border-top: 1px solid var(--border-color);
-    padding: 3rem 0;
+    padding: 2rem 0;
 }
 
 .footer-container {
@@ -12,44 +11,33 @@
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.footer-column {
+    margin-bottom: 1rem;
 }
 
 .footer-title {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: var(--primary-color);
 }
 
-.footer-subtitle {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-}
-
-.footer-links {
-    list-style: none;
-}
-
-.footer-link {
+.footer-description {
     color: var(--text-secondary);
-    text-decoration: none;
-    display: block;
-    padding: 0.5rem 0;
-    transition: var(--transition);
-}
-
-.footer-link:hover {
-    color: var(--primary-color);
-    transform: translateX(3px);
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 .footer-bottom {
     text-align: center;
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     border-top: 1px solid var(--border-color);
     color: var(--text-secondary);
+    font-size: 0.875rem;
 }

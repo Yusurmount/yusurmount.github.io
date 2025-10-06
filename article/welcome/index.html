@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="/css/components/header.css">
     <link rel="stylesheet" href="/css/components/sidebar.css">
     <link rel="stylesheet" href="/css/components/footer.css">
-    <link rel="stylesheet" href="/css/pages/article-detail.css">
+    <link rel="stylesheet" href="/css/pages/article.css">
+    <link rel="stylesheet" href="/css/pages/doc-detail.css">
+    
     <!-- 主CSS文件 -->
     <link rel="stylesheet" href="/css/main.css">
     <!-- Font Awesome 图标库 -->
@@ -24,29 +26,19 @@
     <aside id="sidebar-container"></aside>
 
     <!-- 主内容区 -->
-    <main class="main-container">
-        <section class="article-detail-section fade-in-up">
-            <!-- 文章内容容器 -->
-            <div id="article-content-container"></div>
-            
-            <!-- 文章导航 -->
-            <div class="article-navigation">
-                <div class="article-nav-prev">
-                    <span class="nav-label">上一篇</span>
-                    <span class="nav-text">暂无</span>
-                </div>
-                <div class="article-nav-next">
-                    <span class="nav-label">下一篇</span>
-                    <span class="nav-text">暂无</span>
-                </div>
-            </div>
+    <main class="main-content">
+        <!-- 文章内容区域 -->
+        <section class="docs-section">
+            <!-- 动态加载文章内容的容器 -->
+            <div id="doc-content-container"></div>
         </section>
     </main>
 
     <!-- 页脚容器 -->
-    <div id="footer-container"></div>
+    <footer id="footer-container"></footer>
 
     <!-- JavaScript 代码 -->
+    <script src="/js/marked.min.js"></script>
     <script src="/js/article.js"></script>
 </body>
 </html>

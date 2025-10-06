@@ -16,20 +16,21 @@
     margin-bottom: 2.5rem;
 }
 
-.section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin: 0 0 0.5rem 0;
-}
-
 .section-description {
-    font-size: 1.1rem;
+    text-align: center;
+    max-width: 800px;
     color: var(--text-secondary);
-    max-width: 700px;
-    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin: 0 auto 2rem;
 }
 
+/* 项目列表 */
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
 /* 项目筛选 */
 .project-filters {
     display: flex;
