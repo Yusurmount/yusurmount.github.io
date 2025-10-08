@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaf OS 5 - 你的下一个系统何必是系统</title>
+    <!-- 工具样式 -->
+    <link rel="stylesheet" href="/css/utils/reset.css">
+    <link rel="stylesheet" href="/css/utils/variables.css">
+    <link rel="stylesheet" href="/css/utils/animations.css">
+    <link rel="stylesheet" href="/css/utils/responsive.css">
+    <link rel="stylesheet" href="/css/utils/icon.css">
+    
+    <!-- 组件样式 -->
+    <link rel="stylesheet" href="/css/components/header.css">
+    <link rel="stylesheet" href="/css/components/sidebar.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    
+    <!-- 页面样式 -->
+    <link rel="stylesheet" href="/css/pages/project.css">
+    <link rel="stylesheet" href="/css/pages/Leaf-OS/style.css">
+    
+    <!-- 主CSS文件 -->
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+</head>
+<body>
+    <!-- 动态加载的组件容器 -->
+    <header id="header-container"></header>
+    <aside id="sidebar-container"></aside>
+
+    <!-- 主内容区 -->
+    <main class="leafos-container">
+        <!-- 英雄区域 -->
+        <section class="leafos-hero">
+            <div class="leafos-hero-bg"></div>
+            <div class="leafos-hero-content">
+                <div class="leafos-logo-container">
+                    <img src="./media/Leaf_logo_white.png" alt="Leaf OS Logo" class="leafos-logo">
+                    <img src="./media/LeafOS_text_white.png" alt="Leaf OS" class="leafos-text-logo">
+                </div>
+                <p class="leafos-slogan">
+                    一个基于PowerPoint的伪操作系统
+                </p>
+                <div class="leafos-cta-buttons">
+                    <a href="#download" class="leafos-cta-btn leafos-cta-btn-primary">
+                        <i class="bi bi-download"></i>
+                        立即下载
+                    </a>
+                    <a href="#features" class="leafos-cta-btn leafos-cta-btn-secondary">
+                        <i class="bi bi-info-circle"></i>
+                        了解更多
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 主要内容区域 -->
+        <div class="leafos-main">
+            <!-- 特性部分 -->
+            <section id="features" class="features-section">
+                <div class="leafos-main-container">
+                    <h2 class="section-title">Hello Leaf.</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="bi bi-shield-shaded"></i>
+                            </div>
+                            <h3 class="feature-title">安全防护</h3>
+                            <p class="feature-description">
+                                内置多层安全防护机制，支持硬件保护、实时扫描等功能。
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="bi bi-cpu"></i>
+                            </div>
+                            <h3 class="feature-title">卓越性能</h3>
+                            <p class="feature-description">
+                                经过“优化”的系统内核提供卓越性能，即使在低配置设备上也能流畅运行，启动速度快，响应迅速。
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="bi bi-robot"></i>
+                            </div>
+                            <h3 class="feature-title">Nature智能</h3>
+                            <p class="feature-description">
+                                系统级 Nature AI 帮助您操作设备、管理文件、进行任务，提供智能推荐和自动化功能。
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="bi bi-display"></i>
+                            </div>
+                            <h3 class="feature-title">极简界面</h3>
+                            <p class="feature-description">
+                                简洁直观的用户界面，提供流畅的多任务体验和无缝的跨设备同步。
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="bi bi-globe"></i>
+                            </div>
+                            <h3 class="feature-title">强兼容性</h3>
+                            <p class="feature-description">
+                                Leaf OS 5支持多种硬件平台和设备类型，兼容主流软件和外设，提供丰富生态。
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="bi bi-code"></i>
+                                
+                            </div>
+                            <h3 class="feature-title">宏支持</h3>
+                            <p class="feature-description">
+                                内置宏功能，支持联网获取信息，提高工作效率。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 系统截图部分 -->
+            <section class="screenshot-section">
+                <div class="screenshot-container">
+                    <p class="download-description">
+                        Leaf OS 提供直观、美观的用户界面，让您的工作和娱乐更加轻松
+                    </p>
+                    <img src="./media/desktop.png" alt="Leaf OS 桌面" class="desktop-screenshot">
+                </div>
+            </section>
+            
+            <!-- 技术规格部分 -->
+            <section class="specs-section">
+                <div class="leafos-main-container">
+                    <h2 class="section-title">系统要求</h2>
+                    <div class="specs-grid">
+                        <div class="spec-card">
+                            <h3 class="spec-title">
+                                <i class="bi bi-server"></i>
+                                系统要求
+                            </h3>
+                            <ul class="spec-list">
+                                <li class="spec-item">
+                                    <i class="bi bi-cpu"></i>
+                                    处理器: 无限制
+                                </li>
+                                <li class="spec-item">
+                                    <i class="bi bi-memory"></i>
+                                    内存: 2 GB 以上
+                                </li>
+                                <li class="spec-item">
+                                    <i class="bi bi-hdd"></i>
+                                    存储空间: 至少需要 32 MB
+                                </li>
+                                <li class="spec-item">
+                                    <i class="bi bi-display"></i>
+                                    显示: 16:9 分辨率
+                                </li>
+                                <li class="spec-item">
+                                    <i class="bi bi-wifi"></i>
+                                    网络: 无硬性要求
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="spec-card">
+                            <h3 class="spec-title">
+                                <i class="bi bi-layers"></i>
+                                支持架构
+                            </h3>
+                            <ul class="spec-list">
+                                <li class="spec-item">
+                                    <i class="bi bi-laptop"></i>
+                                    x86-64
+                                </li>
+                                <li class="spec-item">
+                                    <i class="bi bi-tablet"></i>
+                                    ARM64
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="spec-card">
+                            <h3 class="spec-title">
+                                <i class="bi bi-tools"></i>
+                                软件要求
+                                
+                            </h3>
+                            <ul class="spec-list">
+                                <li class="spec-item">
+                                    <i class="bi-filetype-ppt"></i>
+                                    MS PowerPoint 2019 版本及以上
+                                </li>
+                                <li class="spec-item">
+                                    <i class="bi bi-code"></i>
+                                    需要信任所有宏
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 下载区域 -->
+            <section id="download" class="download-section">
+                <h2 class="download-title">下载最新版本</h2>
+                <p class="download-description">Leaf OS 5 - BF0</p>
+                <p class="download-description">需要Microsoft PowerPoint 2019及以上版本</p>
+                <div class="download-buttons">
+                    <a href="/project/Leaf-OS/download/" class="download-btn">
+                        <i class="bi bi-download"></i>
+                        下载 .pptm 文件
+                    </a>
+                    <a href="#" class="download-btn download-btn-outline">
+                        <i class="bi bi-github"></i>
+                        GitHub
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- 动态加载的页脚 -->
+    <footer id="footer-container"></footer>
+    
+    <!-- 导入必要的JavaScript模块 -->
+    <script src="/js/project.js"></script>
+</body>
+</html>

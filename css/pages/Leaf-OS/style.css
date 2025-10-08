@@ -1,0 +1,432 @@
+/* Leaf OS 特定样式 */
+:root {
+    --leafos-primary: var(--primary-color);
+    --leafos-primary-light: var(--primary-light);
+    --leafos-primary-dark: var(--primary-dark);
+    --leafos-secondary: var(--secondary-color);
+}
+
+/* 页面容器 */
+.leafos-container {
+    min-height: 100vh;
+}
+
+/* 英雄区域 */
+.leafos-hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--leafos-primary) 0%, var(--leafos-primary-dark) 100%);
+    color: white;
+    padding: 6rem 1rem;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    margin: 2rem auto;
+    max-width: 1400px;
+}
+
+.leafos-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./media/background.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    border-radius: var(--radius-lg);
+}
+
+.leafos-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.leafos-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.leafos-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.leafos-text-logo {
+    max-width: 400px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.leafos-slogan {
+    font-size: 1.5rem;
+    font-weight: 300;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #FFFFFF;
+}
+
+.leafos-cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.leafos-cta-btn {
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.leafos-cta-btn-primary {
+    background-color: white;
+    color: var(--leafos-primary);
+}
+
+.leafos-cta-btn-primary:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.leafos-cta-btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.leafos-cta-btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+}
+
+/* 主要内容区域 */
+.leafos-main {
+    padding: 4rem 1rem;
+}
+
+.leafos-main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 特性部分 */
+.features-section {
+    margin-bottom: 6rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background-color: white;
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-icon {
+    width: 3rem;
+    height: 3rem;
+    color: var(--leafos-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.feature-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* 系统截图部分 */
+.screenshot-section {
+    margin-bottom: 6rem;
+    padding: 3rem 0;
+}
+
+.screenshot-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.desktop-screenshot {
+    max-width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    margin-top: 2rem;
+}
+
+/* 技术规格部分 */
+.specs-section {
+    margin-bottom: 6rem;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.spec-card {
+    background-color: white;
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.spec-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--leafos-primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.spec-list {
+    list-style: none;
+    padding: 0;
+}
+
+.spec-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.spec-item:last-child {
+    border-bottom: none;
+}
+
+/* 版本路线图部分 */
+.roadmap-section {
+    margin-bottom: 6rem;
+    padding: 3rem 0;
+}
+
+.roadmap-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.roadmap-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.roadmap-item {
+    background-color: white;
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    padding-left: 3rem;
+}
+
+.roadmap-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 100%;
+    width: 2px;
+    height: 2rem;
+    background-color: var(--leafos-primary-light);
+}
+
+.roadmap-item::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 2rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: var(--leafos-primary);
+    z-index: 1;
+}
+
+.roadmap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.roadmap-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.roadmap-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-released {
+    background-color: var(--info-light);
+    color: var(--info-color);
+}
+
+.status-beta {
+    background-color: var(--warning-light);
+    color: var(--warning-color);
+}
+
+.status-planned {
+    background-color: var(--secondary-light);
+    color: var(--secondary-color);
+}
+
+/* 下载区域 */
+.download-section {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.download-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.download-description {
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    line-height: 1.6;
+}
+
+.download-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.download-btn {
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--leafos-primary);
+    color: white;
+}
+
+.download-btn:hover {
+    background-color: var(--background-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.download-btn-outline {
+    background-color: transparent;
+    color: var(--leafos-primary-dark);
+    border: 2px solid var(--leafos-primary);
+}
+
+.download-btn-outline:hover {
+    background-color: var(--leafos-primary-light);
+    color: white;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .leafos-hero {
+        padding: 4rem 1rem;
+    }
+    
+    .leafos-slogan {
+        font-size: 1.25rem;
+    }
+    
+    .leafos-cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    
+    .leafos-cta-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .download-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .download-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

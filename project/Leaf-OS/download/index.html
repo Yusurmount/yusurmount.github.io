@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaf-OS 下载中心</title>
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../../css/utils/variables.css">
+    <link rel="stylesheet" href="../../../css/utils/reset.css">
+    <link rel="stylesheet" href="../../../css/utils/responsive.css">
+    <link rel="stylesheet" href="../../../css/components/header.css">
+    <link rel="stylesheet" href="../../../css/components/footer.css">
+    <link rel="stylesheet" href="../../../css/pages/Leaf-OS/style.css">
+    <style>
+        .download-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .download-main {
+            flex: 1;
+            padding: 4rem 1rem;
+        }
+        .download-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .download-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .download-heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .download-subheading {
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .download-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .download-card {
+            background-color: white;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        .download-card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--leafos-primary);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .download-card-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        .download-link-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--leafos-primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        .download-link-button:hover {
+            background-color: var(--background-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .password-note {
+            background-color: var(--warning-light);
+            color: var(--warning-color);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .release-notes {
+            margin-top: 4rem;
+            background-color: white;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+        .release-notes-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .release-notes-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .icon {
+            display: inline-block;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .icon-cloud {
+            background-image: url('../../../media/icons/cloud-download.svg');
+        }
+        .icon-github {
+            background-image: url('../../../media/icons/github.svg');
+        }
+        .icon-file-text {
+            background-image: url('../../../media/icons/file-text.svg');
+        }
+        .icon-lock {
+            background-image: url('../../../media/icons/lock.svg');
+        }
+    </style>
+</head>
+<body>
+    <div class="download-container">
+        <!-- 页头 -->
+        <header class="header">
+            <div class="header-container">
+                <a href="../../../index.html" class="header-logo">雨夌站</a>
+                
+                <!-- 桌面导航菜单 -->
+                <nav class="header-nav">
+                    <a href="../../../index.html" class="header-link">首页</a>
+                    <a href="../../../about.html" class="header-link">关于</a>
+                    <a href="../../../docs/" class="header-link">文档</a>
+                    <a href="../../../article/" class="header-link">文章</a>
+                    <a href="../../../project/" class="header-link">项目</a>
+                    <a href="../../../contact/" class="header-link">联系</a>
+                </nav>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="menu-toggle" id="menu-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- 移动端下拉菜单 -->
+            <div class="mobile-menu" id="mobile-menu">
+                <nav class="mobile-nav">
+                    <a href="../../../index.html" class="mobile-link">首页</a>
+                    <a href="../../../about.html" class="mobile-link">关于</a>
+                    <a href="../../../docs/" class="mobile-link">文档</a>
+                    <a href="../../../article/" class="mobile-link">文章</a>
+                    <a href="../../../project/" class="mobile-link">项目</a>
+                    <a href="../../../contact/" class="mobile-link">联系</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- 主内容区 -->
+        <main class="download-main">
+            <div class="download-content">
+                <div class="download-header">
+                    <h1 class="download-heading">Leaf-OS 下载中心</h1>
+                    <p class="download-subheading">选择适合您的下载方式，获取最新版本的 Leaf-OS 系统。</p>
+                </div>
+
+                <div class="download-links">
+                    <!-- 蓝奏云下载 -->
+                    <div class="download-card">
+                        <h2 class="download-card-title">
+                            <span class="icon icon-cloud"></span>蓝奏云下载
+                        </h2>
+                        <p class="download-card-description">通过蓝奏云下载 Leaf-OS 系统镜像，适合国内用户，下载速度快。</p>
+                        <a href="https://wwcy.lanzouq.com/b0ulgk72h" target="_blank" class="download-link-button">
+                            <span>立即下载</span>
+                        </a>
+                        <div class="password-note">
+                            <span class="icon icon-lock"></span>
+                            <span>下载密码：0000</span>
+                        </div>
+                    </div>
+
+                    <!-- GitHub 下载 -->
+                    <div class="download-card">
+                        <h2 class="download-card-title">
+                            <span class="icon icon-github"></span>GitHub 下载
+                        </h2>
+                        <p class="download-card-description">访问 GitHub 仓库获取最新版本的 Leaf-OS 系统镜像和源代码。</p>
+                        <a href="https://github.com/yusurmount/Leaf-OS/releases" target="_blank" class="download-link-button">
+                            <span>访问 GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 更新日志 -->
+                <div class="release-notes">
+                    <h2 class="release-notes-title">
+                        <span class="icon icon-file-text"></span>更新日志
+                    </h2>
+                    <p class="release-notes-description">查看 Leaf-OS 的最新更新内容和版本历史记录。</p>
+                    <a href="http://intereco.org.cn/u/56" target="_blank" class="download-link-button">
+                        <span>查看更新日志</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+          <div class="footer-container">
+            
+            
+            <div class="footer-bottom">
+              <p class="footer-copyright">© 2025 雨夌. 版权所有.</p>
+            </div>
+          </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../../../js/menu.js"></script>
+    <script src="../../../js/components.js"></script>
+</body>
+</html>

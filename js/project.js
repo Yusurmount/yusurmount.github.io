@@ -193,6 +193,14 @@ function createMockProjectCards() {
             category: 'web',
             date: '2024-04',
             tags: ['React', 'Redux', 'Firebase']
+        },
+        {
+            title: 'Leaf OS',
+            description: '轻量级、环保、高效的操作系统，为未来计算而设计。基于Linux内核，采用模块化架构，提供流畅、稳定且环保的计算体验。',
+            imageId: 106,
+            category: 'system',
+            date: '2024-07',
+            tags: ['Linux', '操作系统', '开源']
         }
     ];
     

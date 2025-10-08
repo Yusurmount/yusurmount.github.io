@@ -171,7 +171,7 @@ h6 {
 
 p {
     margin-bottom: var(--spacing-4);
-    color: var(--text-secondary);
+    color: #000000cc;
 }
 
 a {
@@ -512,7 +512,7 @@ input:invalid, textarea:invalid, select:invalid {
 
 .sidebar-link.active {
     background-color: var(--primary-light);
-    color: var(--primary-color);
+    color: rgb(255 255 255);
     font-weight: 500;
 }
 

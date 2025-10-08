@@ -18,20 +18,19 @@
     margin: 0 auto;
 }
 
-.logo-text {
+.header-logo {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--primary-color);
     text-decoration: none;
 }
 
-.nav-list {
+.header-nav {
     display: flex;
-    list-style: none;
     gap: 1.5rem;
 }
 
-.nav-link {
+.header-link {
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
@@ -40,12 +39,12 @@
     position: relative;
 }
 
-.nav-link:hover,
-.nav-link.active {
+.header-link:hover,
+.header-link.active {
     color: var(--primary-color);
 }
 
-.nav-link::after {
+.header-link::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -56,8 +55,8 @@
     transition: var(--transition);
 }
 
-.nav-link:hover::after,
-.nav-link.active::after {
+.header-link:hover::after,
+.header-link.active::after {
     width: 100%;
 }
 
@@ -68,4 +67,72 @@
     cursor: pointer;
     color: var(--text-primary);
     padding: 0.5rem;
+    font-size: 1.25rem;
+}
+
+/* 移动端下拉菜单 */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+}
+
+.mobile-menu.open {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+}
+
+.mobile-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.75rem 0;
+    transition: var(--transition);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.mobile-link:hover,
+.mobile-link.active {
+    color: var(--primary-color);
+    padding-left: 0.5rem;
+}
+
+.mobile-link:last-child {
+    border-bottom: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .header-nav {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .header-container {
+        padding: 0 1rem;
+    }
+    
+    .mobile-menu {
+        display: block;
+    }
 }
