@@ -11,14 +11,30 @@ async function fetchArticleList() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const text = await response.text();
+        console.log('Fetched article JSON text:', text);
         const articles = JSON.parse(text);
+        console.log('Parsed articles:', articles);
         return articles.map(article => ({
             ...article,
             url: `/article/${article.name}/index.html`
         }));
     } catch (error) {
         console.error('Failed to fetch article list:', error);
-        return [];
+        // 失败时返回硬编码数据作为 fallback
+        const fallbackArticles = [
+            {
+                "name": "welcome",
+                "title": "欢迎来到雨夌站",
+                "date": "2025-10-05",
+                "category": "公告",
+                "excerpt": "雨夌站正在重建中，这是一个个人博客、文档与项目展示网站。"
+            }
+        ];
+        console.log('Using fallback articles:', fallbackArticles);
+        return fallbackArticles.map(article => ({
+            ...article,
+            url: `/article/${article.name}/index.html`
+        }));
     }
 }
 

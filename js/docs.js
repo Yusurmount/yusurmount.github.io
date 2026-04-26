@@ -11,18 +11,43 @@ async function fetchDocList() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const text = await response.text();
+        console.log('Fetched JSON text:', text);
         const docs = JSON.parse(text);
+        console.log('Parsed docs:', docs);
         return docs.map(doc => ({
             ...doc,
             url: `/docs/${doc.name}/index.html`
         }));
     } catch (error) {
         console.error('Failed to fetch doc list:', error);
-        return [];
+        // 失败时返回硬编码数据作为 fallback
+        const fallbackDocs = [
+            {
+                "name": "test",
+                "title": "测试文档",
+                "date": "2025-10-05",
+                "category": "测试",
+                "excerpt": "这是一个测试文档，用于演示文档模块的动态加载功能。"
+            },
+            {
+                "name": "update",
+                "title": "更新日志",
+                "date": "2026-04-26",
+                "category": "维护",
+                "excerpt": "雨夌站近期更新日志。"
+            }
+        ];
+        console.log('Using fallback docs:', fallbackDocs);
+        return fallbackDocs.map(doc => ({
+            ...doc,
+            url: `/docs/${doc.name}/index.html`
+        }));
     }
 }
 
 function renderDocs(docs, container) {
+    console.log('Rendering docs:', docs);
+    console.log('Container:', container);
     docs.forEach((doc, index) => {
         const docElement = document.createElement('div');
         docElement.className = 'doc-item fade-in-up';
@@ -285,13 +310,17 @@ async function loadDocContent(docPath) {
 
 async function initializeDocsPage() {
     try {
+        console.log('Initializing docs page...');
         await loadAllComponents();
         setupMenuEvents();
 
         const docPath = getDocPathFromUrl();
+        console.log('Doc path:', docPath);
 
         if (docPath === '/docs/index' || docPath === '/docs') {
+            console.log('Loading doc list...');
             const allDocs = await fetchDocList();
+            console.log('All docs:', allDocs);
             setupLoadMoreDocs(allDocs, 10);
 
             if (allDocs.length === 0) {
