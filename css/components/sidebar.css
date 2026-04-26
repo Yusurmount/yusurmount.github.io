@@ -39,6 +39,7 @@
 
 .sidebar-list {
     list-style: none;
+    padding: 0;
 }
 
 .sidebar-item {
@@ -73,6 +74,16 @@
 }
 
 .sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar.open {
+    left: auto;
+    right: 0;
+}
+
+.sidebar-overlay.show {
     opacity: 1;
     visibility: visible;
 }

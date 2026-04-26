@@ -44,15 +44,6 @@
     <div id="footer-container"></div>
 
     <!-- JavaScript 代码 -->
-    <script src="/js/article.js"></script>
-    <script>
-        // 页面加载完成后执行初始化
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializeArticleListPage);
-        } else {
-            // 如果DOM已经加载完成，直接执行初始化
-            initializeArticleListPage();
-        }
-    </script>
+    <script type="module" src="/js/article.js"></script>
 </body>
 </html>
