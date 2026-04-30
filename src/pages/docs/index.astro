@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro'
 import PageLayout from '@/layouts/PageLayout.astro'
 import SectionBlock from '@/components/SectionBlock.astro'
-import { getCollection } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
 
 export const getStaticPaths = (async () => {
   const { getCollection } = await import('astro:content')
