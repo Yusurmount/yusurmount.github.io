@@ -1,32 +1,59 @@
-name: Deploy to GitHub Pages
+# .github/workflows/deploy.yml
+name: 部署到 GitHub Pages
 
 on:
-push:
-    branches: [main]
+  # 当推送到 main 分支时触发
+  push:
+    branches: [ main ]
+  
+  # 允许手动触发
+  workflow_dispatch:
+
+# 设置权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 确保只有一个部署在运行
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-deploy:
+  build:
+    name: 构建网站
     runs-on: ubuntu-latest
-    permissions:
-    contents: read
-    pages: write
-    id-token: write
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Install Node.js
+      - name: 检出代码
+        uses: actions/checkout@v4
+      
+      - name: 设置 Node.js
         uses: actions/setup-node@v4
         with:
-        node-version: 20
-    
-    - name: Install dependencies
-        run: npm install
-    
-    - name: Build
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: 安装依赖
+        run: npm ci
+      
+      - name: 构建 Astro 网站
         run: npm run build
-    
-    - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      
+      - name: 上传构建结果
+        uses: actions/upload-pages-artifact@v3
         with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
+          path: ./dist
+
+  deploy:
+    name: 部署到 GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 部署到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
