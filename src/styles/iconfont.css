@@ -257,3 +257,11 @@
 .icon-sun:before {
   content: '\e89e';
 }
+
+.icon-douyin:before {
+  content: '\e609';
+}
+
+.icon-xiaohongshu:before {
+  content: '\e60a';
+}

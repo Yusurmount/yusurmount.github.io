@@ -25,6 +25,24 @@
         "color": "rgb(24, 23, 23)"
       },
       {
+        "name": "BiliBili",
+        "icon": "icon-bilibili",
+        "url": "https://space.bilibili.com/526008387",
+        "color": "rgb(250, 104, 107)"
+      },
+      {
+        "name": "抖音",
+        "icon": "icon-douyin",
+        "url": "https://www.douyin.com/user/MS4wLjABAAAAmzMshihXiT5Tk5FzLglwjv6uEN5t21lFkqdAf7O3UKBxOrnPKKyiO8_Z5Kp1p8cW",
+        "color": "rgb(0, 0, 0)"
+      },
+      {
+        "name": "小红书",
+        "icon": "icon-xiaohongshu",
+        "url": "https://www.xiaohongshu.com/user/profile/63df7d05000000002702bea3",
+        "color": "rgb(255, 64, 129)"
+      },
+      {
         "name": "Email",
         "icon": "icon-mail",
         "url": "mailto:yusurmount@qq.com",
