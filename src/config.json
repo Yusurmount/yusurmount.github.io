@@ -65,16 +65,6 @@
       "icon": "icon-pantone"
     },
     {
-      "name": "博客",
-      "link": "/",
-      "icon": "icon-edit"
-    },
-    {
-      "name": "DOCS",
-      "link": "/docs",
-      "icon": "icon-flask"
-    },
-    {
       "name": "归档",
       "link": "/archives",
       "icon": "icon-archive"
@@ -88,11 +78,6 @@
       "name": "关于",
       "link": "/about",
       "icon": "icon-ghost"
-    },
-    {
-      "name": "友链",
-      "link": "/friends",
-      "icon": "icon-hearts"
     }
   ],
   "posts": {
