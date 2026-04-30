@@ -1,0 +1,114 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import type { GetStaticPaths } from 'astro'
+import MarkdownLayout from '@/layouts/MarkdownLayout.astro'
+import MarkdownWrapper from '@/components/MarkdownWrapper.astro'
+import SectionBlock from '@/components/SectionBlock.astro'
+import { PostToc } from '@/components/post/PostToc'
+import PostMetaInfo from '@/components/post/PostMetaInfo.astro'
+import { ReadingProgress } from '@/components/post/ReadingProgress'
+import { Outdate } from '@/components/post/Outdate'
+import PostNav from '@/components/post/PostNav.astro'
+import { ActionAside } from '@/components/post/ActionAside'
+
+export const getStaticPaths = (async () => {
+  const { getCollection } = await import('astro:content')
+  const docs = await getCollection('docs', ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true
+  })
+
+  const sortedDocs = docs.sort((a, b) => {
+    if (a.data.order !== b.data.order) {
+      return a.data.order - b.data.order
+    }
+    return a.data.date.valueOf() - b.data.date.valueOf()
+  })
+
+  return sortedDocs.map((doc, index) => ({
+    params: { slug: doc.slug },
+    props: {
+      current: doc,
+      prev: index > 0 ? sortedDocs[index - 1] : undefined,
+      next: index < sortedDocs.length - 1 ? sortedDocs[index + 1] : undefined,
+    },
+  }))
+}) satisfies GetStaticPaths
+
+interface Props {
+  current: CollectionEntry<'docs'>
+  prev?: CollectionEntry<'docs'>
+  next?: CollectionEntry<'docs'>
+}
+
+const { current, prev, next } = Astro.props
+
+const { headings, Content, remarkPluginFrontmatter } = await current.render()
+
+const mdSlug = `/docs/${current.slug}`
+
+const mdDescription = current.data.summary || ''
+
+const lastMod = current.data.lastMod || current.data.date
+---
+
+<MarkdownLayout
+  title={current.data.title}
+  description={current.data.summary}
+  mdTitle={current.data.title}
+  mdDescription={mdDescription}
+  mdSlug={mdSlug}
+>
+  <div
+    class="max-w-[1100px] mx-auto px-4 md:px-8 py-16 grid lg:grid-cols-[auto_260px] gap-8"
+    data-pagefind-body
+  >
+    <div>
+      <header class="space-y-4">
+        <h1 class="text-4xl font-bold text-center">
+          {current.data.title}
+        </h1>
+        <PostMetaInfo
+          class="justify-center"
+          date={current.data.date}
+          lastMod={current.data.lastMod}
+          words={remarkPluginFrontmatter.words}
+          readingMinutes={remarkPluginFrontmatter.readingMinutes}
+        />
+        {
+          current.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-2 justify-center">
+              {current.data.tags.map((tag) => (
+                <span class="px-2 py-1 text-xs rounded bg-secondary text-secondary">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )
+        }
+        <div>
+          <Outdate lastMod={lastMod} client:idle />
+        </div>
+      </header>
+    </div>
+    <div class="col-start-1 min-w-0">
+      <MarkdownWrapper>
+        <Content />
+      </MarkdownWrapper>
+    </div>
+    <div class="hidden lg:block" data-pagefind-ignore>
+      <aside class="sticky top-20">
+        <SectionBlock title="目录">
+          <PostToc headings={headings} client:idle />
+          <hr class="my-2 border-primary max-w-[100px]" />
+          <ReadingProgress client:idle />
+        </SectionBlock>
+        <ActionAside client:idle />
+      </aside>
+    </div>
+    <div data-pagefind-ignore>
+      <section class="space-y-6">
+        <PostNav prev={prev} next={next} />
+      </section>
+    </div>
+  </div>
+</MarkdownLayout>

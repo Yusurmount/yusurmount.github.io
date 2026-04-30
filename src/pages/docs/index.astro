@@ -1,0 +1,97 @@
+---
+import type { GetStaticPaths } from 'astro'
+import PageLayout from '@/layouts/PageLayout.astro'
+import SectionBlock from '@/components/SectionBlock.astro'
+import { getCollection } from 'astro:content'
+
+export const getStaticPaths = (async () => {
+  const { getCollection } = await import('astro:content')
+  const docs = await getCollection('docs', ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true
+  })
+
+  const sortedDocs = docs.sort((a, b) => {
+    if (a.data.order !== b.data.order) {
+      return a.data.order - b.data.order
+    }
+    return a.data.date.valueOf() - b.data.date.valueOf()
+  })
+
+  const categories = [...new Set(docs.map((doc) => doc.data.category).filter(Boolean))]
+
+  const docsByCategory = categories.reduce((acc, category) => {
+    if (category) {
+      acc[category] = sortedDocs.filter((doc) => doc.data.category === category)
+    }
+    return acc
+  }, {} as Record<string, typeof sortedDocs>)
+
+  return [
+    {
+      params: {},
+      props: { sortedDocs, categories, docsByCategory },
+    },
+  ]
+}) satisfies GetStaticPaths
+
+interface Props {
+  sortedDocs: any[]
+  categories: string[]
+  docsByCategory: Record<string, any[]>
+}
+
+const { sortedDocs, categories, docsByCategory } = Astro.props
+---
+
+<PageLayout title="文档" description="技术文档和使用指南">
+  <div class="max-w-[1100px] px-4 md:px-8 py-20 mx-auto">
+    <header class="mb-12 text-center">
+      <h1 class="text-4xl font-bold mb-4">文档</h1>
+      <p class="text-secondary">技术文档和使用指南</p>
+    </header>
+
+    {
+      categories.length > 0 ? (
+        <div class="space-y-12">
+          {categories.map((category) => (
+            <SectionBlock title={category}>
+              <div class="grid gap-4">
+                {docsByCategory[category].map((doc) => (
+                  <a
+                    href={`/docs/${doc.slug}`}
+                    class="block p-4 rounded-lg border border-primary hover:border-accent hover:bg-secondary transition-colors"
+                  >
+                    <h3 class="font-semibold text-lg mb-2">{doc.data.title}</h3>
+                    {doc.data.summary && (
+                      <p class="text-secondary text-sm">{doc.data.summary}</p>
+                    )}
+                    <div class="mt-2 text-xs text-secondary">
+                      {doc.data.date.toLocaleDateString('zh-CN')}
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </SectionBlock>
+          ))}
+        </div>
+      ) : (
+        <div class="grid gap-4">
+          {sortedDocs.map((doc) => (
+            <a
+              href={`/docs/${doc.slug}`}
+              class="block p-4 rounded-lg border border-primary hover:border-accent hover:bg-secondary transition-colors"
+            >
+              <h3 class="font-semibold text-lg mb-2">{doc.data.title}</h3>
+              {doc.data.summary && (
+                <p class="text-secondary text-sm">{doc.data.summary}</p>
+              )}
+              <div class="mt-2 text-xs text-secondary">
+                {doc.data.date.toLocaleDateString('zh-CN')}
+              </div>
+            </a>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</PageLayout>

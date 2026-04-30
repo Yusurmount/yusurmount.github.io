@@ -3,7 +3,7 @@
     "url": "https://yusurmount.github.io",
     "title": "雨夌站",
     "description": "雨夌的个人博客，记录技术学习与生活感悟。",
-    "keywords": "雨夌,博客,Astro,前端,技术",
+    "keywords": "前端,技术,游戏,设计",
     "lang": "zh-CN",
     "favicon": "/favicon.ico",
     "appleTouchIcon": "/apple-touch-icon.png"
@@ -11,12 +11,12 @@
   "author": {
     "name": "雨夌",
     "twitterId": "@yusurmount",
-    "avatar": "https://s2.loli.net/2024/04/30/ozsnuS5Ihf3xMBG.webp"
+    "avatar": "/avatar.jpg"
   },
   "hero": {
     "name": "雨夌",
     "bio": "热爱编程与设计的开发者",
-    "description": "记录技术，分享生活",
+    "description": "Grow along the way, share every day.",
     "socials": [
       {
         "name": "Github",
@@ -27,11 +27,11 @@
       {
         "name": "Email",
         "icon": "icon-mail",
-        "url": "mailto:yusurmount@outlook.com",
+        "url": "mailto:yusurmount@qq.com",
         "color": "rgb(212, 70, 56)"
       }
     ],
-    "yiyan": "当第一颗卫星飞向大气层外，我们便以为自己终有一日会征服宇宙。"
+    "yiyan": "当相思不比相逢好，此别朱颜应老。——晏几道《秋蕊香》"
   },
   "color": {
     "accent": [
@@ -63,6 +63,16 @@
       "name": "首页",
       "link": "/",
       "icon": "icon-pantone"
+    },
+    {
+      "name": "博客",
+      "link": "/",
+      "icon": "icon-edit"
+    },
+    {
+      "name": "DOCS",
+      "link": "/docs",
+      "icon": "icon-flask"
     },
     {
       "name": "归档",
