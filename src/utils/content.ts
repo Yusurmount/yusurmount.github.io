@@ -126,3 +126,87 @@ export async function getHotTags(len = 5) {
     })
     .slice(0, len)
 }
+
+// 获取所有文档
+async function getAllDocs() {
+  const allDocs = await getCollection('docs', ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true
+  })
+
+  return allDocs
+}
+
+// 获取所有文档，发布日期升序
+async function getNewestDocs() {
+  const allDocs = await getAllDocs()
+
+  return allDocs.sort((a, b) => {
+    return a.data.date.valueOf() - b.data.date.valueOf()
+  })
+}
+
+// 获取所有文档，发布日期降序
+export async function getOldestDocs() {
+  const allDocs = await getAllDocs()
+
+  return allDocs.sort((a, b) => {
+    return b.data.date.valueOf() - a.data.date.valueOf()
+  })
+}
+
+// 获取所有文档，置顶优先，发布日期降序
+export async function getSortedDocs() {
+  const allDocs = await getAllDocs()
+
+  return allDocs.sort((a, b) => {
+    if (a.data.sticky !== b.data.sticky) {
+      return b.data.sticky - a.data.sticky
+    } else {
+      return b.data.date.valueOf() - a.data.date.valueOf()
+    }
+  })
+}
+
+// 获取所有文档的字数
+export async function getAllDocsWordCount() {
+  const allDocs = await getAllDocs()
+
+  const promises = allDocs.map((doc) => {
+    return doc.render()
+  })
+
+  const res = await Promise.all(promises)
+
+  const wordCount = res.reduce((count, cur) => {
+    return count + cur.remarkPluginFrontmatter.words
+  }, 0)
+
+  return wordCount
+}
+
+// 获取所有文档分类
+export async function getAllDocCategories() {
+  const newestDocs = await getNewestDocs()
+
+  const allCategories = newestDocs.reduce<{ slug: string; name: string; count: number }[]>(
+    (acc, cur) => {
+      if (cur.data.category) {
+        const slug = slugify(cur.data.category)
+        const index = acc.findIndex((category) => category.slug === slug)
+        if (index === -1) {
+          acc.push({
+            slug,
+            name: cur.data.category,
+            count: 1,
+          })
+        } else {
+          acc[index].count += 1
+        }
+      }
+      return acc
+    },
+    [],
+  )
+
+  return allCategories
+}

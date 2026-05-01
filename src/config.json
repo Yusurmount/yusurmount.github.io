@@ -1,7 +1,7 @@
 {
   "site": {
     "url": "https://yusurmount.github.io",
-    "title": "雨夌站",
+    "title": "凌的小站",
     "description": "雨夌的个人博客，记录技术学习与生活感悟。",
     "keywords": "前端,技术,游戏,设计",
     "lang": "zh-CN",
@@ -96,6 +96,11 @@
       "name": "关于",
       "link": "/about",
       "icon": "icon-ghost"
+    },
+    {
+      "name": "文档",
+      "link": "/docs",
+      "icon": "icon-file-text"
     }
   ],
   "posts": {

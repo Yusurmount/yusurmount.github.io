@@ -1,0 +1,46 @@
+---
+import type { GetStaticPaths } from 'astro'
+import PageLayout from '@/layouts/PageLayout.astro'
+import { getAllDocCategories, getOldestDocs, slugify } from '@/utils/content'
+import Highlight from '@/components/Highlight.astro'
+import DocTimeline from '@/components/DocTimeline.astro'
+
+export const getStaticPaths = (async () => {
+  const allCategories = await getAllDocCategories()
+
+  return allCategories.map((category) => {
+    return {
+      params: {
+        category: category.slug,
+      },
+      props: { category },
+    }
+  })
+}) satisfies GetStaticPaths
+
+interface Props {
+  category: {
+    name: string
+    slug: string
+    count: number
+  }
+}
+
+const { category } = Astro.props
+
+const oldestDocs = await getOldestDocs().then((docs) => {
+  return docs.filter((doc) => doc.data.category && slugify(doc.data.category) === category.slug)
+})
+---
+
+<PageLayout title={`分类 · ${category.name}`}>
+  <div class="max-w-[800px] mx-auto px-4 py-16">
+    <header class="space-y-4 mb-8">
+      <h1 class="text-4xl font-bold">
+        分类：<Highlight>{category.name}</Highlight>
+      </h1>
+      <p>共有 {category.count} 篇文档。</p>
+    </header>
+    <DocTimeline posts={oldestDocs} />
+  </div>
+</PageLayout>

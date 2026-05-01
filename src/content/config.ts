@@ -26,6 +26,21 @@ const projectsCollection = defineCollection({
   }),
 })
 
+const docsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    date: z.date(),
+    lastMod: z.date().optional(),
+    summary: z.string().optional(),
+    cover: z.string().optional(),
+    category: z.string().optional(),
+    comments: z.boolean().default(true),
+    draft: z.boolean().default(false),
+    sticky: z.number().default(0),
+  }),
+})
+
 const specCollection = defineCollection({
   type: 'content',
   schema: z.object({
@@ -39,4 +54,5 @@ export const collections = {
   posts: postsCollection,
   projects: projectsCollection,
   spec: specCollection,
+  docs: docsCollection,
 }
