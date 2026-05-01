@@ -1,7 +1,7 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro'
 import { getAllDocCategories } from '@/utils/content'
-import CategoryList from '@/components/CategoryList.astro'
+import DocCategoryList from '@/components/DocCategoryList.astro'
 import Highlight from '@/components/Highlight.astro'
 
 const categories = await getAllDocCategories()
@@ -15,6 +15,6 @@ const categories = await getAllDocCategories()
       </h1>
       <p>共有 {categories.length} 个分类。</p>
     </header>
-    <CategoryList categories={categories} />
+    <DocCategoryList categories={categories} />
   </div>
 </PageLayout>
