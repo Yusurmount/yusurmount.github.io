@@ -1,11 +1,9 @@
 ---
-
 title: 【归档】雨夌站 Legacy 更新日志
 date: 2026-04-30
 summary: 此为 Legacy 旧版站点的更新日志汇总。
 category: 更新日志
-tags: \[更新日志]
-
+tags: [更新日志]
 ---
 
 :::info
