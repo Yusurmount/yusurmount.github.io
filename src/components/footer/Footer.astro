@@ -16,14 +16,13 @@ const wordCountStr = (wordCount / 1000).toFixed(1) + 'k'
 
 <footer class="relative z-1 py-8 px-4 md:px-8 border-t border-primary text-secondary text-sm">
   <div class="text-center space-y-2">
+    <div class="space-x-1">
+      <span>&copy; 2026 <Link href="/">雨夌</Link></span>
+    </div>
     <div>
-      Powered by
-      <Link href="https://astro.build/">Astro</Link>
-      & Designed by
-      <Link href="https://github.com/lxchapu/astro-gyoza">Gyoza</Link>
+      本站原创内容禁止未经授权转载、摘抄及商用。
     </div>
     <div class="space-x-1">
-      <span>&copy;{copyDate} <Link href="/">{author.name}</Link>.</span>
       <Link href="/rss.xml" data-no-swup>
         <i class="iconfont icon-rss"></i>
         <span>RSS</span>
