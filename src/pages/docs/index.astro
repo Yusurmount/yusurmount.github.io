@@ -1,10 +1,10 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro'
-import { getOldestDocs } from '@/utils/content'
-import DocTimeline from '@/components/DocTimeline.astro'
+import { getAllDocCategories } from '@/utils/content'
+import CategoryList from '@/components/CategoryList.astro'
 import Highlight from '@/components/Highlight.astro'
 
-const oldestDocs = await getOldestDocs()
+const categories = await getAllDocCategories()
 ---
 
 <PageLayout title="文档">
@@ -13,8 +13,8 @@ const oldestDocs = await getOldestDocs()
       <h1 class="text-4xl font-bold">
         <Highlight>文档</Highlight>
       </h1>
-      <p>共有 {oldestDocs.length} 篇文档。</p>
+      <p>共有 {categories.length} 个分类。</p>
     </header>
-    <DocTimeline posts={oldestDocs} />
+    <CategoryList categories={categories} />
   </div>
 </PageLayout>

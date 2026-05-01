@@ -83,9 +83,14 @@
       "icon": "icon-pantone"
     },
     {
-      "name": "归档",
+      "name": "文章",
       "link": "/archives",
       "icon": "icon-archive"
+    },
+    {
+      "name": "文档",
+      "link": "/docs",
+      "icon": "icon-file-text"
     },
     {
       "name": "项目",
@@ -96,12 +101,8 @@
       "name": "关于",
       "link": "/about",
       "icon": "icon-ghost"
-    },
-    {
-      "name": "文档",
-      "link": "/docs",
-      "icon": "icon-file-text"
     }
+  
   ],
   "posts": {
     "perPage": 10
