@@ -1,8 +1,9 @@
----
+***
+
 title: 自述
 description: 这是一份站长的自述报告，请查收。
 comments: false
----
+---------------
 
 ## 关于作者
 
@@ -14,3 +15,8 @@ comments: false
 
 - [Email](mailto:yusurmount@qq.com)
 - [抖音私信](https://www.douyin.com/user/MS4wLjABAAAAmzMshihXiT5Tk5FzLglwjv6uEN5t21lFkqdAf7O3UKBxOrnPKKyiO8_Z5Kp1p8cW)
+
+<br />
+
+## 更新日志
+[查看更新日志](/categories/更新日志/)

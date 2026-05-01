@@ -2,7 +2,7 @@
 title: 文档示例
 date: 2026-05-01T00:00:00Z
 category: 示例
-comments: true
+comments: false
 draft: false
 ---
 
