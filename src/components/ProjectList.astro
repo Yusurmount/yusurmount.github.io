@@ -6,9 +6,12 @@ const projects = await getCollection('projects')
 
 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
   {
-    projects.map((project) => (
+    projects.map((project) => {
+      const href = project.data.page || project.data.link
+      const isExternal = !project.data.page
+      return (
       <li>
-        <a href={project.data.link} target="_blank" rel="noopener noreferrer external">
+        <a href={href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noopener noreferrer external' : undefined}>
           <div class="rounded-lg bg-accent/10 overflow-hidden group">
             <div class="aspect-video overflow-hidden">
               <img
@@ -21,13 +24,14 @@ const projects = await getCollection('projects')
             <div class="p-4">
               <div class="group-hover:text-accent">
                 <span class="text-xl font-bold">{project.data.title}</span>
-                <i class="ml-2 iconfont icon-external-link" />
+                {isExternal && <i class="ml-2 iconfont icon-external-link" />}
               </div>
               <p class="mt-2 text-sm line-clamp-2">{project.data.description}</p>
             </div>
           </div>
         </a>
       </li>
-    ))
+    )
+    })
   }
 </ul>

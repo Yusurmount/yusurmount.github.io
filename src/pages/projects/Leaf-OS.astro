@@ -1,0 +1,424 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+
+const { title, description, image, link } = {
+  title: 'Leaf OS',
+  description: '一个基于 PowerPoint 的伪操作系统，提供卓越性能和极简界面体验。',
+  image: 'https://intereco-basic-1305364972.cos.ap-nanjing.myqcloud.com//2025-09-06/1757156566-298963-image.png',
+  link: 'https://github.com/yusurmount/Leaf-OS',
+}
+const version = 'Leaf OS 5 - BF1'
+const specs = {
+  processor: '无限制',
+  memory: '4 GB 以上',
+  storage: '至少需要 200 MB',
+  display: '强制宽高比 16:9',
+  network: '无硬性要求',
+  arch: ['x86-64', 'ARM64'],
+  require: 'MS PowerPoint 2019 版本及以上',
+  macro: '需要信任所有宏',
+}
+const features = [
+  {
+    icon: 'bi-shield',
+    title: '安全防护',
+    desc: '内置多层安全防护机制，支持硬件保护、实时扫描等功能。',
+  },
+  {
+    icon: 'bi-lightning',
+    title: '卓越性能',
+    desc: '经过"优化"的系统内核提供卓越性能，即使在低配置设备上也能流畅运行。',
+  },
+  {
+    icon: 'bi-robot',
+    title: 'Nature 智能',
+    desc: '系统级 Nature AI 帮助您操作设备、管理文件、进行任务。',
+  },
+  {
+    icon: 'bi-palette',
+    title: '极简界面',
+    desc: '简洁直观的用户界面，提供流畅的多任务体验和无缝的跨设备同步。',
+  },
+  {
+    icon: 'bi-link-45deg',
+    title: '强兼容性',
+    desc: '支持多种硬件平台和设备类型，兼容主流软件和外设。',
+  },
+  {
+    icon: 'bi-file-earmark-code',
+    title: '宏支持',
+    desc: '内置宏功能，支持联网获取信息，提高工作效率。',
+  },
+]
+---
+
+<PageLayout title={title} description={description} image={image}>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    :root {
+      --accent: rgb(var(--color-accent));
+      --bg-primary: rgb(var(--color-bg-root));
+      --bg-secondary: rgb(var(--color-bg-secondary));
+      --bg-card: rgb(var(--color-bg-secondary));
+      --text-primary: rgb(var(--color-text-primary));
+      --text-secondary: rgb(var(--color-text-secondary));
+      --border: rgb(var(--color-border-primary));
+      --btn-primary-text: white;
+    }
+    [data-theme='dark'] {
+      --btn-primary-text: rgb(255, 255, 255);
+    }
+    .leafos-container {
+      min-height: 100vh;
+    }
+    /* Hero */
+    .hero {
+      min-height: calc(100dvh - 64px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+      padding: 4rem 0;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 80%;
+      height: 150%;
+      background: radial-gradient(ellipse, color-mix(in srgb, var(--accent) 15%, transparent) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      white-space: nowrap;
+    }
+    .hero-title span { color: var(--accent); }
+    .hero-desc {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 45ch;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--btn-primary-text);
+    }
+    .btn-primary:hover { filter: brightness(0.9); }
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+    }
+    .hero-logo-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      overflow: visible;
+    }
+    .hero-logo-wrap img { width: 100%; height: auto; }
+    .hero-logo-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120%;
+      height: 120%;
+      background: radial-gradient(circle, color-mix(in srgb, var(--accent) 25%, transparent) 0%, transparent 60%);
+      filter: blur(60px);
+      z-index: -1;
+      pointer-events: none;
+    }
+    /* Features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: border-color 0.2s ease;
+    }
+    .feature-card:hover { border-color: var(--accent); }
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+    .feature-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .feature-desc {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+      line-height: 1.65;
+    }
+    /* Screenshot */
+    .screenshot-wrap {
+      background: var(--bg-secondary);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .screenshot-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    /* Specs */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.5fr;
+      gap: 1.5rem;
+    }
+    .spec-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    .spec-card-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+    }
+    .spec-list { list-style: none; }
+    .spec-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+    }
+    .spec-list li:last-child { border-bottom: none; }
+    .spec-list li i { color: var(--text-primary); }
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .specs-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 2rem 0;
+        min-height: auto;
+      }
+      .hero-desc { margin-left: auto; margin-right: auto; }
+      .hero-ctas { justify-content: center; }
+      .hero-visual { order: -1; }
+      .hero-logo-wrap { max-width: 320px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .specs-grid { grid-template-columns: 1fr; }
+    }
+    /* Animations */
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up {
+      animation: fade-up 0.6s ease forwards;
+      opacity: 0;
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+  </style>
+
+  <div class="leafos-container">
+    <!-- Hero -->
+    <section class="hero max-w-[1100px] px-4 md:px-8 mx-auto">
+      <div class="hero-content">
+        <p class="hero-eyebrow animate-fade-up">Leaf OS - PowerPoint 伪操作系统</p>
+        <h1 class="hero-title animate-fade-up delay-1">
+          你的下一个系统<br><span>何必是系统</span>
+        </h1>
+        <p class="hero-desc animate-fade-up delay-2">
+          {description}
+        </p>
+        <div class="hero-ctas animate-fade-up delay-3">
+          <a href="#download" class="btn btn-primary">
+            <i class="bi bi-download"></i>
+            立即下载
+          </a>
+          <a href="#features" class="btn btn-outline">
+            <i class="bi bi-info-circle"></i>
+            了解更多
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual animate-fade-up delay-2">
+        <div class="hero-logo-wrap">
+          <div class="hero-logo-glow"></div>
+          <img src="/Leaf-OS/media/LeafLogo.png" alt="Leaf OS Logo" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-24">
+      <div class="max-w-[1100px] px-4 md:px-8 mx-auto">
+        <header class="mb-16">
+          <h2 class="text-3xl font-bold tracking-tight mb-4">Hello. Leaf OS 5</h2>
+          <p class="text-secondary text-lg max-w-[50ch]">六大核心特性，重新定义 PowerPoint 的可能性</p>
+        </header>
+        <div class="features-grid">
+          {features.map((f, i) => (
+            <div class="feature-card animate-fade-up" style={{ animationDelay: `${0.1 * i}s` }}>
+              <i class={`${f.icon} feature-icon`}></i>
+              <h3 class="feature-title">{f.title}</h3>
+              <p class="feature-desc">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshot -->
+    <section class="py-24">
+      <div class="max-w-[1100px] px-4 md:px-8 mx-auto">
+        <div class="screenshot-wrap">
+          <img src="/Leaf-OS/media/desktop.png" alt="Leaf OS 桌面展示">
+        </div>
+      </div>
+    </section>
+
+    <!-- Specs -->
+    <section class="py-24">
+      <div class="max-w-[1100px] px-4 md:px-8 mx-auto">
+        <header class="mb-16">
+          <h2 class="text-3xl font-bold tracking-tight mb-4">系统要求</h2>
+          <p class="text-secondary text-lg max-w-[50ch]">极低的门槛，极高的创意</p>
+        </header>
+        <div class="specs-grid">
+          <div class="spec-card">
+            <h3 class="spec-card-title">
+              <i class="bi bi-server"></i>
+              硬件要求
+            </h3>
+            <ul class="spec-list">
+              <li><i class="bi bi-cpu"></i> 处理器: {specs.processor}</li>
+              <li><i class="bi bi-memory"></i> 内存: {specs.memory}</li>
+              <li><i class="bi bi-hdd"></i> 存储: {specs.storage}</li>
+              <li><i class="bi bi-display"></i> 显示: {specs.display}</li>
+              <li><i class="bi bi-wifi"></i> 网络: {specs.network}</li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <h3 class="spec-card-title">
+              <i class="bi bi-layers"></i>
+              支持架构
+            </h3>
+            <ul class="spec-list">
+              {specs.arch.map(a => (
+                <li><i class="bi bi-laptop"></i> {a}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="spec-card">
+            <h3 class="spec-card-title">
+              <i class="bi bi-tools"></i>
+              软件要求
+            </h3>
+            <ul class="spec-list">
+              <li><i class="bi bi-filetype-ppt"></i> {specs.require}</li>
+              <li><i class="bi bi-code"></i> {specs.macro}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download -->
+    <section id="download" class="py-32 text-center">
+      <div class="max-w-[1100px] px-4 md:px-8 mx-auto">
+        <h2 class="text-3xl font-bold tracking-tight mb-3">下载最新版本</h2>
+        <p class="text-accent text-xl mb-2">{version}</p>
+        <p class="text-secondary mb-10">需要 Microsoft PowerPoint 2019 及以上版本</p>
+        <div class="flex justify-center gap-4 flex-wrap">
+          <a href="/projects/Leaf-OS/download" class="btn btn-primary">
+            <i class="bi bi-download"></i>
+            下载 .pptm 文件
+          </a>
+          <a href={link} target="_blank" rel="noopener" class="btn btn-outline">
+            <i class="bi bi-github"></i>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).style.animationPlayState = 'running';
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll<HTMLElement>('.animate-fade-up').forEach((el) => {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+  </script>
+</PageLayout>
