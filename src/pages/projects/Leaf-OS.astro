@@ -18,18 +18,18 @@ const uiComponents = [
   { label: '按钮', items: '强调、次要、普通、禁用状态' },
   { label: '输入', items: '标准输入框、带提示文字输入' },
   { label: '列表', items: '活动选项、禁用选项、勾选状态' },
-  { label: '动效', items: '淡入淡出动画、Leaf Design 标识' },
+  { label: '动效', items: '高级非线性缓动动画' },
 ]
 
 const satelliteSteps = [
-  { step: '01', title: '定位卫星', desc: '移步开阔地带，系统自动搜索可用卫星信号并确认连接参数。' },
-  { step: '02', title: '校准天线', desc: '自动设置天线角度与频率，期间请勿移动设备以确保信号稳定。' },
-  { step: '03', title: '建立通讯', desc: '90秒倒计时连接，状态栏网络标识实时切换为卫星网络。' },
+  { step: '01', title: '定位卫星', desc: '自动搜索可用卫星信号并确认连接参数。' },
+  { step: '02', title: '校准天线', desc: '自动设置天线角度与频率，无需手动调整。' },
+  { step: '03', title: '建立通讯', desc: '多重握手建立连接，确保数据传输安全。' },
 ]
 
 const lbtTools = [
-  { icon: 'bi-arrow-repeat', title: '系统升级', desc: '获取并安装最新系统更新包' },
-  { icon: 'bi-clipboard-check', title: '系统自检', desc: '全面诊断硬件与软件运行状态' },
+  { icon: 'bi-arrow-repeat', title: '系统升级', desc: '获取最新更新信息' },
+  { icon: 'bi-clipboard-check', title: '系统自检', desc: '诊断硬件与软件运行状态' },
   { icon: 'bi-shield-exclamation', title: '重置系统', desc: '清除所有数据并恢复出厂状态' },
   { icon: 'bi-shield-check', title: '安全模式', desc: '仅加载核心组件进行故障排查' },
   { icon: 'bi-list-ol', title: '启动顺序', desc: '自定义多系统引导优先级' },
@@ -431,7 +431,7 @@ const systemSpecs = [
             下载体验
           </a>
           <a href="#hardware" class="btn btn-outline">
-            了解硬件
+            了解更多
             <i class="bi bi-arrow-right"></i>
           </a>
         </div>
@@ -495,7 +495,7 @@ const systemSpecs = [
         <div class="design-text-col">
           <header class="mb-8">
             <h2 class="design-title text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-3">
-              精心雕琢的界面语言
+              极简的界面语言
             </h2>
             <p class="design-desc text-[var(--text-secondary)] text-lg leading-relaxed">
               Leaf OS 5 建立了完整的 UI 组件库，涵盖文本、按钮、输入、列表、动效五大体系，确保每一处交互都一致且精致。
@@ -693,7 +693,7 @@ const systemSpecs = [
               { label: '项目成立', value: '2025-06-29' },
               { label: '编译时间', value: '2025-09-21' },
               { label: '版本类型', value: '公开测试版 / 演示专用' },
-              { label: '版权归属', value: '2025 雨夌 All Rights Reserved' },
+              { label: '版权归属', value: '雨夌 All Rights Reserved' },
             ].map((v, i, arr) => (
               <div class={`spec-row ${i === arr.length - 1 ? '!border-b-0' : ''}`} data-index={i}>
                 <span class="text-sm font-medium">{v.label}</span>
