@@ -26,6 +26,9 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.0
         version: 5.1.5(astro@4.16.19(@types/node@25.6.0)(rollup@2.80.0)(terser@5.46.2)(typescript@5.9.3))(tailwindcss@3.4.19(yaml@2.8.3))
+      '@gsap/react':
+        specifier: ^2.1.2
+        version: 2.1.2(gsap@3.15.0)(react@18.3.1)
       '@radix-ui/react-dialog':
         specifier: ^1.0.5
         version: 1.1.15(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -62,6 +65,9 @@ importers:
       framer-motion:
         specifier: ^11.1.5
         version: 11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      gsap:
+        specifier: ^3.15.0
+        version: 3.15.0
       hastscript:
         specifier: ^9.0.0
         version: 9.0.1
@@ -1010,6 +1016,12 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@gsap/react@2.1.2':
+    resolution: {integrity: sha512-JqliybO1837UcgH2hVOM4VO+38APk3ECNrsuSM4MuXp+rbf+/2IG2K1YJiqfTcXQHH7XlA0m3ykniFYstfq0Iw==}
+    peerDependencies:
+      gsap: ^3.12.5
+      react: '>=17'
+
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
     engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
@@ -1233,6 +1245,11 @@ packages:
     resolution: {integrity: sha512-IojxFWMEJe0RQ7PQ3KXQsPIImNsbpPYpoZ+QUDrL8fAl/O27IX+LVLs74/UzEZy5uA2LD8Nz1AiwKr72vrkZQw==}
     cpu: [x64]
     os: [darwin]
+
+  '@pagefind/freebsd-x64@1.5.2':
+    resolution: {integrity: sha512-7EVzo9+0w+2cbe671BtMj10UlNo83I+HrLVLfRxO731svHRJKUfJ/mo05gU14pe9PCfpKNQT8FS3Xc/oDN6pOA==}
+    cpu: [x64]
+    os: [freebsd]
 
   '@pagefind/linux-arm64@1.5.2':
     resolution: {integrity: sha512-Ovt9+K35sqzn8H3ZMXGwls4TD/wMJuvRtShHIsmUQREmaxjrDEX7gHckRCrwYJ4XE1H1p6HkLz3wukrAnsfXQw==}
@@ -2818,6 +2835,9 @@ packages:
   gray-matter@4.0.3:
     resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
     engines: {node: '>=6.0'}
+
+  gsap@3.15.0:
+    resolution: {integrity: sha512-dMW4CWBTUK1AEEDeZc1g4xpPGIrSf9fJF960qbTZmN/QwZIWY5wgliS6JWl9/25fpTGJrMRtSjGtOmPnfjZB+A==}
 
   gzip-size@3.0.0:
     resolution: {integrity: sha512-6s8trQiK+OMzSaCSVXX+iqIcLV9tC+E73jrJrJTyS4h/AJhlxHvzFKqM1YLDJWRGgHX8uLkBeXkA0njNj39L4w==}
@@ -6205,6 +6225,11 @@ snapshots:
   '@esbuild/win32-x64@0.21.5':
     optional: true
 
+  '@gsap/react@2.1.2(gsap@3.15.0)(react@18.3.1)':
+    dependencies:
+      gsap: 3.15.0
+      react: 18.3.1
+
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
       '@img/sharp-libvips-darwin-arm64': 1.0.4
@@ -6424,6 +6449,9 @@ snapshots:
     optional: true
 
   '@pagefind/darwin-x64@1.5.2':
+    optional: true
+
+  '@pagefind/freebsd-x64@1.5.2':
     optional: true
 
   '@pagefind/linux-arm64@1.5.2':
@@ -8201,6 +8229,8 @@ snapshots:
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
 
+  gsap@3.15.0: {}
+
   gzip-size@3.0.0:
     dependencies:
       duplexer: 0.1.2
@@ -9351,6 +9381,7 @@ snapshots:
     optionalDependencies:
       '@pagefind/darwin-arm64': 1.5.2
       '@pagefind/darwin-x64': 1.5.2
+      '@pagefind/freebsd-x64': 1.5.2
       '@pagefind/linux-arm64': 1.5.2
       '@pagefind/linux-x64': 1.5.2
       '@pagefind/windows-arm64': 1.5.2

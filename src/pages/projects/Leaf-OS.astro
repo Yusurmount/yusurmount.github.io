@@ -1,131 +1,75 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro'
 
-const { title, description, image, link } = {
-  title: 'Leaf OS',
-  description: '一个基于 PowerPoint 的伪操作系统，提供卓越性能和极简界面体验。',
-  image: 'https://intereco-basic-1305364972.cos.ap-nanjing.myqcloud.com//2025-09-06/1757156566-298963-image.png',
-  link: 'https://github.com/yusurmount/Leaf-OS',
-}
-const version = 'Leaf OS 5 - BF1'
-const specs = {
-  processor: '无限制',
-  memory: '4 GB 以上',
-  storage: '至少需要 200 MB',
-  display: '强制宽高比 16:9',
-  network: '无硬性要求',
-  arch: ['x86-64', 'ARM64'],
-  require: 'MS PowerPoint 2019 版本及以上',
-  macro: '需要信任所有宏',
-}
-const features = [
-  {
-    icon: 'bi-shield',
-    title: '安全防护',
-    desc: '内置多层安全防护机制，支持硬件保护、实时扫描等功能。',
-  },
-  {
-    icon: 'bi-lightning',
-    title: '卓越性能',
-    desc: '经过"优化"的系统内核提供卓越性能，即使在低配置设备上也能流畅运行。',
-  },
-  {
-    icon: 'bi-robot',
-    title: 'Nature 智能',
-    desc: '系统级 Nature AI 帮助您操作设备、管理文件、进行任务。',
-  },
-  {
-    icon: 'bi-palette',
-    title: '极简界面',
-    desc: '简洁直观的用户界面，提供流畅的多任务体验和无缝的跨设备同步。',
-  },
-  {
-    icon: 'bi-link-45deg',
-    title: '强兼容性',
-    desc: '支持多种硬件平台和设备类型，兼容主流软件和外设。',
-  },
-  {
-    icon: 'bi-file-earmark-code',
-    title: '宏支持',
-    desc: '内置宏功能，支持联网获取信息，提高工作效率。',
-  },
+const version = '5.0.0.beta.bf1'
+const kernel = '2502 (18526.20086)'
+
+const hardware = [
+  { icon: 'bi-cpu', label: '处理器', value: '骁龙8 Gen3', detail: '8核 3nm 3.3GHz' },
+  { icon: 'bi-motherboard', label: '运行内存', value: '16GB', detail: 'LPDDR5X 8533MHz' },
+  { icon: 'bi-device-hdd', label: '存储空间', value: '1.0 TB', detail: 'UFS 3.1' },
+  { icon: 'bi-battery', label: '电池', value: '8600mAh', detail: '最高 90W 快充' },
+  { icon: 'bi-display', label: '屏幕', value: '12.4" OLED', detail: '2K 分辨率 144Hz' },
+  { icon: 'bi-router', label: '网络', value: 'Virtual Net', detail: '以太网 + 卫星连接' },
+]
+
+const uiComponents = [
+  { label: '文本', items: '多级标题、副标题、大标题样式' },
+  { label: '按钮', items: '强调、次要、普通、禁用状态' },
+  { label: '输入', items: '标准输入框、带提示文字输入' },
+  { label: '列表', items: '活动选项、禁用选项、勾选状态' },
+  { label: '动效', items: '淡入淡出动画、Leaf Design 标识' },
+]
+
+const satelliteSteps = [
+  { step: '01', title: '定位卫星', desc: '移步开阔地带，系统自动搜索可用卫星信号并确认连接参数。' },
+  { step: '02', title: '校准天线', desc: '自动设置天线角度与频率，期间请勿移动设备以确保信号稳定。' },
+  { step: '03', title: '建立通讯', desc: '90秒倒计时连接，状态栏网络标识实时切换为卫星网络。' },
+]
+
+const lbtTools = [
+  { icon: 'bi-arrow-repeat', title: '系统升级', desc: '获取并安装最新系统更新包' },
+  { icon: 'bi-clipboard-check', title: '系统自检', desc: '全面诊断硬件与软件运行状态' },
+  { icon: 'bi-shield-exclamation', title: '重置系统', desc: '清除所有数据并恢复出厂状态' },
+  { icon: 'bi-shield-check', title: '安全模式', desc: '仅加载核心组件进行故障排查' },
+  { icon: 'bi-list-ol', title: '启动顺序', desc: '自定义多系统引导优先级' },
+  { icon: 'bi-usb-plug', title: '介质启动', desc: '从外部存储设备引导系统' },
+]
+
+const systemSpecs = [
+  { label: '软件要求', value: 'Microsoft PowerPoint 2019 及以上版本' },
+  { label: '宏设置', value: '需启用并信任所有宏' },
+  { label: '存储空间', value: '至少 200 MB 可用空间' },
+  { label: '显示比例', value: '强制宽高比 16:9' },
+  { label: '支持架构', value: 'x86-64 / ARM64' },
+  { label: '内存要求', value: '4 GB 及以上' },
 ]
 ---
 
-<PageLayout title={title} description={description} image={image}>
+<PageLayout
+  title="Leaf OS 5 - 基于 PowerPoint 的操作系统"
+  description="Leaf OS 5 是基于 Microsoft PowerPoint 构建的伪操作系统，搭载 Nature AI 智能、卫星通讯、硬件保护等前沿特性。"
+  image="/Leaf-OS/media/desktop.png"
+>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
   <style>
     :root {
       --accent: rgb(var(--color-accent));
-      --bg-primary: rgb(var(--color-bg-root));
+      --bg-root: rgb(var(--color-bg-root));
+      --bg-primary: rgb(var(--color-bg-primary));
       --bg-secondary: rgb(var(--color-bg-secondary));
-      --bg-card: rgb(var(--color-bg-secondary));
       --text-primary: rgb(var(--color-text-primary));
       --text-secondary: rgb(var(--color-text-secondary));
       --border: rgb(var(--color-border-primary));
-      --btn-primary-text: white;
     }
-    [data-theme='dark'] {
-      --btn-primary-text: rgb(255, 255, 255);
-    }
-    .leafos-container {
-      min-height: 100vh;
-    }
-    /* Hero */
-    .hero {
-      min-height: calc(100dvh - 64px);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 4rem;
-      padding: 4rem 0;
-      position: relative;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 80%;
-      height: 150%;
-      background: radial-gradient(ellipse, color-mix(in srgb, var(--accent) 15%, transparent) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-content { position: relative; z-index: 1; }
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      font-weight: 500;
-    }
-    .hero-title {
-      font-size: clamp(3rem, 8vw, 5rem);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
-      white-space: nowrap;
-    }
-    .hero-title span { color: var(--accent); }
-    .hero-desc {
-      font-size: 1.125rem;
-      color: var(--text-secondary);
-      max-width: 45ch;
-      margin-bottom: 2.5rem;
-      line-height: 1.7;
-    }
-    .hero-ctas {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+
+    /* ===== Shared Components ===== */
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.875rem 1.75rem;
+      padding: 0.75rem 1.5rem;
       border-radius: 8px;
       font-weight: 600;
       font-size: 0.9375rem;
@@ -133,292 +77,882 @@ const features = [
       transition: all 0.2s ease;
       cursor: pointer;
       border: none;
+      will-change: transform;
     }
     .btn:active { transform: translateY(1px); }
     .btn-primary {
       background: var(--accent);
-      color: var(--btn-primary-text);
+      color: #fff;
     }
-    .btn-primary:hover { filter: brightness(0.9); }
+    .btn-primary:hover { filter: brightness(0.88); }
     .btn-outline {
       background: transparent;
       color: var(--text-primary);
       border: 1px solid var(--border);
     }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-    .hero-visual {
+    .btn-outline:hover { border-color: var(--accent); }
+
+    /* ===== Hero Static Section ===== */
+    .hero-static {
       position: relative;
+      width: 100%;
+      min-height: calc(100dvh - 64px);
       display: flex;
+      align-items: center;
       justify-content: center;
-      align-items: center;
-      overflow: visible;
+      padding: 4rem 0;
     }
-    .hero-logo-wrap {
-      position: relative;
-      width: 100%;
-      max-width: 480px;
-      overflow: visible;
-    }
-    .hero-logo-wrap img { width: 100%; height: auto; }
-    .hero-logo-glow {
+    .hero-glow {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 120%;
-      height: 120%;
-      background: radial-gradient(circle, color-mix(in srgb, var(--accent) 25%, transparent) 0%, transparent 60%);
-      filter: blur(60px);
-      z-index: -1;
+      width: 140%; height: 140%;
+      background: radial-gradient(circle at center, color-mix(in srgb, var(--accent) 20%, transparent) 0%, transparent 60%);
+      filter: blur(80px);
       pointer-events: none;
+      z-index: 0;
     }
-    /* Features */
-    .features-grid {
+    .hero-content {
+      position: relative;
+      z-index: 10;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .feature-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      transition: border-color 0.2s ease;
-    }
-    .feature-card:hover { border-color: var(--accent); }
-    .feature-icon {
-      font-size: 2rem;
-      margin-bottom: 1.25rem;
-      display: block;
-    }
-    .feature-title {
-      font-size: 1.125rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-    .feature-desc {
-      color: var(--text-secondary);
-      font-size: 0.9375rem;
-      line-height: 1.65;
-    }
-    /* Screenshot */
-    .screenshot-wrap {
-      background: var(--bg-secondary);
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .screenshot-wrap img {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 1200px;
       width: 100%;
-      height: auto;
-      display: block;
+      padding: 0 2rem;
+      align-items: center;
     }
-    /* Specs */
-    .specs-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1.5fr;
-      gap: 1.5rem;
+    @media (min-width: 1024px) {
+      .hero-content { grid-template-columns: 1fr 1fr; gap: 4rem; }
     }
-    .spec-card {
+
+    /* ===== Bento Hardware Cards ===== */
+    .metric-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: border-color 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      will-change: transform, opacity;
+    }
+    .metric-card:hover { border-color: var(--accent); }
+    .metric-value {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .metric-detail {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ===== Satellite Section ===== */
+    .satellite-wrap {
+      background: color-mix(in srgb, var(--accent) 5%, var(--bg-primary));
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .step-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: border-color 0.25s ease;
+      will-change: transform, opacity;
+    }
+    .step-card:hover { border-color: var(--accent); }
+    .step-num {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: color-mix(in srgb, var(--accent) 40%, transparent);
+    }
+
+    /* ===== LBT Cards ===== */
+    .tool-card {
       background: var(--bg-secondary);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 2rem;
-    }
-    .spec-card-title {
+      padding: 1.5rem;
+      transition: border-color 0.2s ease;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 0.75rem;
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
+      will-change: transform, opacity;
+    }
+    .tool-card:hover { border-color: var(--accent); }
+    .tool-icon {
+      font-size: 1.5rem;
       color: var(--accent);
     }
-    .spec-list { list-style: none; }
-    .spec-list li {
+
+    /* ===== Spec Row ===== */
+    .spec-row {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      padding: 0.625rem 0;
+      justify-content: space-between;
+      padding: 1rem 0;
       border-bottom: 1px solid var(--border);
-      font-size: 0.9375rem;
-      color: var(--text-secondary);
+      gap: 1rem;
+      will-change: transform, opacity;
     }
-    .spec-list li:last-child { border-bottom: none; }
-    .spec-list li i { color: var(--text-primary); }
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .features-grid { grid-template-columns: repeat(2, 1fr); }
-      .specs-grid { grid-template-columns: 1fr 1fr; }
+
+    /* ===== Settings cell ===== */
+    .settings-cell {
+      will-change: transform, opacity;
     }
+
+    /* ===== Section headers ===== */
+    .section-header {
+      will-change: transform, opacity;
+    }
+
+    /* ===== Hardware Pin Section ===== */
+    .hardware-pin {
+      position: relative;
+      width: 100%;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hardware-inner {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+    }
+    .hardware-header,
+    .hardware-grid,
+    .hardware-footer {
+      will-change: transform, opacity;
+    }
+
+    /* ===== Design System Pin Section ===== */
+    .design-pin {
+      position: relative;
+      width: 100%;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .design-pin-inner {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+    }
+    .design-text-col,
+    .design-screenshot-wrap {
+      will-change: transform, opacity;
+    }
+    .design-list-item {
+      will-change: transform, opacity;
+    }
+
+    /* ===== Satellite Pin Section ===== */
+    .satellite-pin {
+      position: relative;
+      width: 100%;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .satellite-inner {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+    }
+    .satellite-header,
+    .satellite-grid,
+    .satellite-footer {
+      will-change: transform, opacity;
+    }
+
+    /* ===== Security Pin Section ===== */
+    .security-pin {
+      position: relative;
+      width: 100%;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .security-inner {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+    }
+    .security-header,
+    .security-grid {
+      will-change: transform, opacity;
+    }
+    .security-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      will-change: transform, opacity;
+    }
+
+    /* ===== LBT Pin Section ===== */
+    .lbt-pin {
+      position: relative;
+      width: 100%;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .lbt-inner {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+    }
+    .lbt-header,
+    .lbt-grid {
+      will-change: transform, opacity;
+    }
+
+    /* ===== Settings Pin Section ===== */
+    .settings-pin {
+      position: relative;
+      width: 100%;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .settings-inner {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+    }
+    .settings-header,
+    .settings-grid {
+      will-change: transform, opacity;
+    }
+
+    /* ===== Specs Pin Section ===== */
+    .specs-pin {
+      position: relative;
+      width: 100%;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .specs-inner {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+    }
+    .specs-grid,
+    .specs-header,
+    .specs-table {
+      will-change: transform, opacity;
+    }
+
+    /* ===== Screenshot parallax wrap ===== */
+    .screenshot-wrap {
+      will-change: transform;
+      overflow: hidden;
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      background: var(--bg-secondary);
+    }
+    .screenshot-wrap img {
+      will-change: transform;
+      transform: scale(1.08);
+    }
+
+    /* ===== Security cards ===== */
+    .security-card {
+      will-change: transform, opacity;
+    }
+
+    /* ===== Download CTA (static) ===== */
+    .download-content > * {
+      will-change: auto;
+    }
+
+    /* ===== Responsive ===== */
     @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 2rem 0;
-        min-height: auto;
+      .hero-glow { width: 200%; height: 200%; }
+      .metric-value { font-size: 1.25rem; }
+      .step-num { font-size: 2.25rem; }
+    }
+
+    /* Reduced motion: disable will-change to save GPU */
+    @media (prefers-reduced-motion: reduce) {
+      .metric-card, .step-card, .tool-card, .spec-row, .settings-cell, .section-header, .security-card, .screenshot-wrap, .screenshot-wrap img, .btn, .design-text-col, .design-screenshot-wrap, .design-list-item {
+        will-change: auto;
+        animation: none !important;
       }
-      .hero-desc { margin-left: auto; margin-right: auto; }
-      .hero-ctas { justify-content: center; }
-      .hero-visual { order: -1; }
-      .hero-logo-wrap { max-width: 320px; }
-      .features-grid { grid-template-columns: 1fr; }
-      .specs-grid { grid-template-columns: 1fr; }
     }
-    /* Animations */
-    @keyframes fade-up {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-up {
-      animation: fade-up 0.6s ease forwards;
-      opacity: 0;
-    }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
   </style>
 
-  <div class="leafos-container">
-    <!-- Hero -->
-    <section class="hero max-w-[1100px] px-4 md:px-8 mx-auto">
-      <div class="hero-content">
-        <p class="hero-eyebrow animate-fade-up">Leaf OS - PowerPoint 伪操作系统</p>
-        <h1 class="hero-title animate-fade-up delay-1">
-          你的下一个系统<br><span>何必是系统</span>
-        </h1>
-        <p class="hero-desc animate-fade-up delay-2">
-          {description}
+  <!-- ================================================
+       HERO - Static display
+       ================================================ -->
+  <section class="hero-static" id="hero-static">
+    <div class="hero-glow hidden lg:block"></div>
+
+    <div class="hero-content">
+      <!-- Text Column -->
+      <div class="relative z-10 flex flex-col gap-6 hero-text-col">
+        <p class="hero-eyebrow text-xs uppercase tracking-[0.2em] font-medium text-[var(--accent)]">
+          Leaf OS 5 Beta
         </p>
-        <div class="hero-ctas animate-fade-up delay-3">
+        <h1 class="hero-title text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-[-0.03em]">
+          你的下一个系统<br>
+          <span class="text-[var(--accent)]">何必是系统</span>
+        </h1>
+        <p class="hero-desc text-[var(--text-secondary)] text-lg leading-relaxed max-w-[48ch]">
+          Leaf OS 5 是基于 Microsoft PowerPoint 构建的伪操作系统，融合 Nature AI 智能、卫星通讯与硬件安全防护，在熟悉的环境中探索系统设计的边界。
+        </p>
+        <div class="hero-ctas flex flex-wrap gap-3">
           <a href="#download" class="btn btn-primary">
             <i class="bi bi-download"></i>
-            立即下载
+            下载体验
           </a>
-          <a href="#features" class="btn btn-outline">
-            <i class="bi bi-info-circle"></i>
-            了解更多
+          <a href="#hardware" class="btn btn-outline">
+            了解硬件
+            <i class="bi bi-arrow-right"></i>
           </a>
         </div>
       </div>
-      <div class="hero-visual animate-fade-up delay-2">
-        <div class="hero-logo-wrap">
-          <div class="hero-logo-glow"></div>
-          <img src="/Leaf-OS/media/LeafLogo.png" alt="Leaf OS Logo" />
-        </div>
-      </div>
-    </section>
 
-    <!-- Features -->
-    <section id="features" class="py-24">
-      <div class="max-w-[1100px] px-4 md:px-8 mx-auto">
-        <header class="mb-16">
-          <h2 class="text-3xl font-bold tracking-tight mb-4">Hello. Leaf OS 5</h2>
-          <p class="text-secondary text-lg max-w-[50ch]">六大核心特性，重新定义 PowerPoint 的可能性</p>
-        </header>
-        <div class="features-grid">
-          {features.map((f, i) => (
-            <div class="feature-card animate-fade-up" style={{ animationDelay: `${0.1 * i}s` }}>
-              <i class={`${f.icon} feature-icon`}></i>
-              <h3 class="feature-title">{f.title}</h3>
-              <p class="feature-desc">{f.desc}</p>
+      <!-- Visual Column (Logo) -->
+      <div class="relative flex items-center justify-center hero-visual-col">
+        <div class="relative w-full max-w-[400px] hero-logo-wrap">
+          <img
+            src="/Leaf-OS/media/LeafLogo.png"
+            alt="Leaf OS 5 标志"
+            class="w-full h-auto relative z-10"
+            width="400"
+            height="400"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       HARDWARE - Bento Grid with stagger reveal
+       ================================================ -->
+  <section class="hardware-pin" id="hardware-pin">
+    <div class="hardware-inner max-w-[1100px] mx-auto px-4 md:px-8">
+      <header class="hardware-header mb-14 max-w-[60ch]">
+        <h2 class="hardware-title text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-3">
+          为 Tree Pad 3S 量身打造
+        </h2>
+        <p class="hardware-desc text-[var(--text-secondary)] text-lg">
+          专为旗舰平板优化的系统体验，充分发挥每一颗芯片的性能潜力。
+        </p>
+      </header>
+
+      <div class="hardware-grid grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+        {hardware.map((h, i) => (
+          <div class="metric-card" data-index={i}>
+            <div class="flex items-center gap-2 text-[var(--accent)]">
+              <i class={`${h.icon} text-lg`}></i>
+              <span class="text-xs uppercase tracking-wider font-medium">{h.label}</span>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- Screenshot -->
-    <section class="py-24">
-      <div class="max-w-[1100px] px-4 md:px-8 mx-auto">
-        <div class="screenshot-wrap">
-          <img src="/Leaf-OS/media/desktop.png" alt="Leaf OS 桌面展示">
-        </div>
-      </div>
-    </section>
-
-    <!-- Specs -->
-    <section class="py-24">
-      <div class="max-w-[1100px] px-4 md:px-8 mx-auto">
-        <header class="mb-16">
-          <h2 class="text-3xl font-bold tracking-tight mb-4">系统要求</h2>
-          <p class="text-secondary text-lg max-w-[50ch]">极低的门槛，极高的创意</p>
-        </header>
-        <div class="specs-grid">
-          <div class="spec-card">
-            <h3 class="spec-card-title">
-              <i class="bi bi-server"></i>
-              硬件要求
-            </h3>
-            <ul class="spec-list">
-              <li><i class="bi bi-cpu"></i> 处理器: {specs.processor}</li>
-              <li><i class="bi bi-memory"></i> 内存: {specs.memory}</li>
-              <li><i class="bi bi-hdd"></i> 存储: {specs.storage}</li>
-              <li><i class="bi bi-display"></i> 显示: {specs.display}</li>
-              <li><i class="bi bi-wifi"></i> 网络: {specs.network}</li>
-            </ul>
+            <div class="metric-value">{h.value}</div>
+            <div class="metric-detail">{h.detail}</div>
           </div>
-          <div class="spec-card">
-            <h3 class="spec-card-title">
-              <i class="bi bi-layers"></i>
-              支持架构
-            </h3>
-            <ul class="spec-list">
-              {specs.arch.map(a => (
-                <li><i class="bi bi-laptop"></i> {a}</li>
-              ))}
-            </ul>
-          </div>
-          <div class="spec-card">
-            <h3 class="spec-card-title">
-              <i class="bi bi-tools"></i>
-              软件要求
-            </h3>
-            <ul class="spec-list">
-              <li><i class="bi bi-filetype-ppt"></i> {specs.require}</li>
-              <li><i class="bi bi-code"></i> {specs.macro}</li>
-            </ul>
+        ))}
+      </div>
+
+      <p class="hardware-footer mt-4 text-xs text-[var(--text-secondary)]">
+        型号代码 L316PA-S - 演示设备 Tree Pad 3S
+      </p>
+    </div>
+  </section>
+
+  <!-- ================================================
+       DESIGN SYSTEM - Pinned scroll-driven showcase
+       ================================================ -->
+  <section class="design-pin" id="design-pin">
+    <div class="design-pin-inner max-w-[1100px] mx-auto px-4 md:px-8">
+      <div class="grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-center">
+        <!-- Text -->
+        <div class="design-text-col">
+          <header class="mb-8">
+            <h2 class="design-title text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-3">
+              精心雕琢的界面语言
+            </h2>
+            <p class="design-desc text-[var(--text-secondary)] text-lg leading-relaxed">
+              Leaf OS 5 建立了完整的 UI 组件库，涵盖文本、按钮、输入、列表、动效五大体系，确保每一处交互都一致且精致。
+            </p>
+          </header>
+
+          <div class="design-list space-y-3">
+            {uiComponents.map((c) => (
+              <div class="design-list-item flex items-baseline gap-3 py-2 border-b border-[var(--border)] last:border-b-0">
+                <span class="text-sm font-semibold text-[var(--accent)] min-w-[3rem]">{c.label}</span>
+                <span class="text-sm text-[var(--text-secondary)]">{c.items}</span>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Download -->
-    <section id="download" class="py-32 text-center">
-      <div class="max-w-[1100px] px-4 md:px-8 mx-auto">
-        <h2 class="text-3xl font-bold tracking-tight mb-3">下载最新版本</h2>
-        <p class="text-accent text-xl mb-2">{version}</p>
-        <p class="text-secondary mb-10">需要 Microsoft PowerPoint 2019 及以上版本</p>
-        <div class="flex justify-center gap-4 flex-wrap">
-          <a href="/projects/Leaf-OS/download" class="btn btn-primary">
-            <i class="bi bi-download"></i>
-            下载 .pptm 文件
-          </a>
-          <a href={link} target="_blank" rel="noopener" class="btn btn-outline">
-            <i class="bi bi-github"></i>
-            GitHub
-          </a>
+        <!-- Screenshot -->
+        <div class="design-screenshot-wrap screenshot-wrap">
+          <img
+            src="/Leaf-OS/media/desktop.png"
+            alt="Leaf OS 5 桌面截图"
+            class="w-full h-auto"
+            width="800"
+            height="450"
+            loading="lazy"
+          />
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <script>
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            (entry.target as HTMLElement).style.animationPlayState = 'running';
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+  <!-- ================================================
+       SATELLITE CONNECTION - Pinned scroll animation
+       ================================================ -->
+  <section class="satellite-pin" id="satellite-pin">
+    <div class="satellite-inner max-w-[1100px] mx-auto px-4 md:px-8">
+      <header class="satellite-header mb-14 max-w-[60ch]">
+        <h2 class="satellite-title text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-3">
+          突破连接的边界
+        </h2>
+        <p class="satellite-desc text-[var(--text-secondary)] text-lg">
+          卫星连接是 Leaf OS 5 最具突破性的网络功能。在户外开阔地带，系统可切换至卫星通讯模式，实现传统网络覆盖之外的数据传输。
+        </p>
+      </header>
 
-    document.querySelectorAll<HTMLElement>('.animate-fade-up').forEach((el) => {
-      el.style.animationPlayState = 'paused';
-      observer.observe(el);
-    });
-  </script>
+      <!-- Step Cards -->
+      <div class="satellite-grid grid md:grid-cols-3 gap-4">
+        {satelliteSteps.map((s, i) => (
+          <div class="step-card" data-index={i}>
+            <div class="step-num">{s.step}</div>
+            <h3 class="text-lg font-semibold mt-2">{s.title}</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed mt-2">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="satellite-footer mt-8 text-sm text-[var(--text-secondary)] max-w-[60ch]">
+        启用卫星连接后将自动中断 WLAN 与蓝牙。断开卫星后，系统恢复原有网络配置。
+      </p>
+    </div>
+  </section>
+
+  <!-- ================================================
+       SECURITY - Pinned scroll animation
+       ================================================ -->
+  <section class="security-pin" id="security-pin">
+    <div class="security-inner max-w-[1100px] mx-auto px-4 md:px-8 text-center">
+      <header class="security-header mb-14 max-w-[50ch] mx-auto">
+        <h2 class="security-title text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-3">
+          安全，由芯开始
+        </h2>
+        <p class="security-desc text-[var(--text-secondary)] text-lg">
+          Leaf OS 5 提供硬件级安全防护，通过引导锁与设备 ID 双重验证，防止恶意程序损坏系统核心。
+        </p>
+      </header>
+
+      <div class="security-grid grid sm:grid-cols-2 gap-6 max-w-[700px] mx-auto text-left">
+        <div class="security-card" data-index="0">
+          <div class="text-2xl mb-3 text-[var(--accent)]"><i class="bi bi-shield-lock-fill"></i></div>
+          <h3 class="font-semibold mb-2">硬件保护</h3>
+          <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+            启用前需通过硬件验证。一旦激活，系统将持续监控底层固件完整性，拦截未授权的修改行为。
+          </p>
+        </div>
+        <div class="security-card" data-index="1">
+          <div class="text-2xl mb-3 text-[var(--accent)]"><i class="bi bi-lock-fill"></i></div>
+          <h3 class="font-semibold mb-2">引导锁</h3>
+          <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+            设备引导锁是硬件保护的前置条件。启用后，系统启动路径被锁定，防止未授权引导介质加载。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       SYSTEM TOOLS (LBT) - Pinned scroll animation
+       ================================================ -->
+  <section class="lbt-pin" id="lbt-pin">
+    <div class="lbt-inner max-w-[1100px] mx-auto px-4 md:px-8">
+      <header class="lbt-header mb-14 max-w-[60ch]">
+        <div class="lbt-badge flex items-center gap-3 mb-3">
+          <span class="text-xs uppercase tracking-[0.18em] font-medium text-[var(--accent)] bg-[var(--bg-secondary)] border border-[var(--border)] rounded-full px-3 py-1">
+            LBT 3.0.1
+          </span>
+          <span class="text-xs text-[var(--text-secondary)]">CC BY-NC-SA 4.0</span>
+        </div>
+        <h2 class="lbt-title text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-3">
+          Leaf Boot Tool
+        </h2>
+        <p class="lbt-desc text-[var(--text-secondary)] text-lg max-w-[50ch]">
+          底层系统维护工具集，提供升级、诊断、重置等完整的系统生命周期管理能力。
+        </p>
+      </header>
+
+      <div class="lbt-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {lbtTools.map((t, i) => (
+          <div class="tool-card" data-index={i}>
+            <div class="tool-icon"><i class={t.icon}></i></div>
+            <h3 class="font-semibold">{t.title}</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">{t.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       SETTINGS MODULES - Pinned scroll animation
+       ================================================ -->
+  <section class="settings-pin" id="settings-pin">
+    <div class="settings-inner max-w-[1100px] mx-auto px-4 md:px-8">
+      <header class="settings-header mb-14 max-w-[60ch]">
+        <h2 class="settings-title text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-3">
+          完整的系统设置
+        </h2>
+        <p class="settings-desc text-[var(--text-secondary)] text-lg">
+          从显示亮度到网络配置，从电池管理到设备安全，一切尽在掌控。
+        </p>
+      </header>
+
+      <div class="settings-grid grid grid-cols-2 md:grid-cols-4 gap-px bg-[var(--border)] rounded-xl overflow-hidden">
+        {[
+          { icon: 'bi-sun-fill', label: '显示', desc: '自动亮度调节' },
+          { icon: 'bi-battery-charging', label: '电池', desc: '电量与充电状态' },
+          { icon: 'bi-wifi', label: '网络', desc: 'WLAN 蓝牙 以太网 卫星' },
+          { icon: 'bi-arrow-repeat', label: '更新', desc: '系统版本管理' },
+          { icon: 'bi-info-circle-fill', label: '关于', desc: '设备完整信息' },
+          { icon: 'bi-shield-fill-check', label: '安全', desc: '硬件保护配置' },
+          { icon: 'bi-grid-fill', label: '应用', desc: '已安装与系统应用' },
+          { icon: 'bi-person-circle', label: '帐户', desc: 'Leaf 云帐户入口' },
+        ].map((m, i) => (
+          <div class="settings-cell bg-[var(--bg-secondary)] p-5 flex flex-col gap-1" data-index={i}>
+            <i class={`${m.icon} text-lg text-[var(--accent)]`}></i>
+            <span class="font-semibold text-sm">{m.label}</span>
+            <span class="text-xs text-[var(--text-secondary)]">{m.desc}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       SPECIFICATIONS - Pinned scroll animation
+       ================================================ -->
+  <section class="specs-pin" id="specs-pin">
+    <div class="specs-inner max-w-[1100px] mx-auto px-4 md:px-8">
+      <div class="specs-grid grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16">
+        <!-- System Specs -->
+        <div class="specs-system">
+          <header class="specs-header mb-8">
+            <h2 class="specs-title text-2xl font-bold tracking-[-0.02em] mb-2">系统要求</h2>
+            <p class="specs-desc text-sm text-[var(--text-secondary)]">运行 Leaf OS 5 所需的最低环境</p>
+          </header>
+          <div class="specs-table bg-[var(--bg-secondary)] border border-[var(--border)] rounded-xl p-6">
+            {systemSpecs.map((s, i) => (
+              <div class={`spec-row ${i === systemSpecs.length - 1 ? '!border-b-0' : ''}`} data-index={i}>
+                <span class="text-sm font-medium">{s.label}</span>
+                <span class="text-sm text-[var(--text-secondary)] text-right">{s.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Version Info -->
+        <div class="specs-version">
+          <header class="specs-header mb-8">
+            <h2 class="specs-title text-2xl font-bold tracking-[-0.02em] mb-2">版本信息</h2>
+            <p class="specs-desc text-sm text-[var(--text-secondary)]">当前版本的构建详情</p>
+          </header>
+          <div class="specs-table bg-[var(--bg-secondary)] border border-[var(--border)] rounded-xl p-6">
+            {[
+              { label: '系统版本', value: version },
+              { label: '内核版本', value: kernel },
+              { label: '项目成立', value: '2025-06-29' },
+              { label: '编译时间', value: '2025-09-21' },
+              { label: '版本类型', value: '公开测试版 / 演示专用' },
+              { label: '版权归属', value: '2025 雨夌 All Rights Reserved' },
+            ].map((v, i, arr) => (
+              <div class={`spec-row ${i === arr.length - 1 ? '!border-b-0' : ''}`} data-index={i}>
+                <span class="text-sm font-medium">{v.label}</span>
+                <span class="text-sm text-[var(--text-secondary)] text-right">{v.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       DOWNLOAD - Centered CTA
+       ================================================ -->
+  <section id="download" class="py-32 text-center">
+    <div class="max-w-[600px] mx-auto px-4 md:px-8 download-content">
+      <p class="dl-version text-[var(--accent)] text-lg font-semibold mb-2">{version}</p>
+      <h2 class="dl-title text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-3">
+        准备好开始了吗
+      </h2>
+      <p class="dl-desc text-[var(--text-secondary)] text-lg mb-10">
+        需要 Microsoft PowerPoint 2019 及以上版本，启用并信任所有宏。
+      </p>
+      <div class="dl-btns flex justify-center gap-4 flex-wrap">
+        <a href="/projects/Leaf-OS/download" class="btn btn-primary">
+          <i class="bi bi-download"></i>
+          下载 .pptm 文件
+        </a>
+        <a href="https://github.com/yusurmount/Leaf-OS" target="_blank" rel="noopener" class="btn btn-outline">
+          <i class="bi bi-github"></i>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
 </PageLayout>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion) {
+    // ==========================================
+    // HERO - Static with load animation only
+    // ==========================================
+    const heroLoadTl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.2 });
+    heroLoadTl
+      .from('.hero-eyebrow', { opacity: 0, y: 20, duration: 0.6 })
+      .from('.hero-title', { opacity: 0, y: 30, duration: 0.8, ease: 'power4.out' }, '-=0.4')
+      .from('.hero-desc', { opacity: 0, y: 20, duration: 0.6 }, '-=0.5')
+      .from('.hero-ctas', { opacity: 0, y: 15, duration: 0.5 }, '-=0.3')
+      .from('.hero-logo-wrap', { opacity: 0, scale: 0.85, duration: 0.8, ease: 'back.out(1.7)' }, '-=0.6');
+
+    // ==========================================
+    // DESIGN SYSTEM - Pinned scroll animation
+    // ==========================================
+    const designPin = document.getElementById('design-pin');
+    if (designPin) {
+      const designTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: designPin,
+          start: 'top top',
+          end: '+=130%',
+          pin: true,
+          scrub: 0.8,
+          anticipatePin: 1,
+        }
+      });
+
+      // Phase 1: Elements enter and settle (0% - 35%)
+      designTl
+        .fromTo('.design-title', { opacity: 0, y: 40 }, { opacity: 1, y: 0, ease: 'none' }, 0)
+        .fromTo('.design-desc', { opacity: 0, y: 30 }, { opacity: 1, y: 0, ease: 'none' }, 0.06)
+        .fromTo('.design-list-item', { opacity: 0, x: -30 }, { opacity: 1, x: 0, stagger: 0.03, ease: 'none' }, 0.1)
+        .fromTo('.design-screenshot-wrap', { opacity: 0, scale: 0.9, y: 40 }, { opacity: 1, scale: 1, y: 0, ease: 'none' }, 0.05)
+        // Phase 2: Content exits upward (35% - 75%)
+        .to('.design-text-col', { opacity: 0, y: -60, ease: 'power2.in' }, 0.4)
+        .to('.design-screenshot-wrap', { opacity: 0, scale: 1.08, y: -40, ease: 'power2.in' }, 0.42);
+    }
+
+    // ==========================================
+    // HARDWARE - Pinned scroll animation
+    // ==========================================
+    const hardwarePin = document.getElementById('hardware-pin');
+    if (hardwarePin) {
+      const hardwareTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: hardwarePin,
+          start: 'top top',
+          end: '+=130%',
+          pin: true,
+          scrub: 0.8,
+          anticipatePin: 1,
+        }
+      });
+
+      hardwareTl
+        .fromTo('.hardware-title', { opacity: 0, y: 40 }, { opacity: 1, y: 0, ease: 'none' }, 0)
+        .fromTo('.hardware-desc', { opacity: 0, y: 30 }, { opacity: 1, y: 0, ease: 'none' }, 0.06)
+        .fromTo('.metric-card', { opacity: 0, y: 50 }, { opacity: 1, y: 0, stagger: 0.06, ease: 'none' }, 0.1)
+        .fromTo('.hardware-footer', { opacity: 0 }, { opacity: 1, ease: 'none' }, 0.2)
+        .to('.hardware-header', { opacity: 0, y: -50, ease: 'power2.in' }, 0.4)
+        .to('.hardware-grid', { opacity: 0, y: -30, ease: 'power2.in' }, 0.42)
+        .to('.hardware-footer', { opacity: 0, y: -20, ease: 'power2.in' }, 0.45);
+    }
+
+    // ==========================================
+    // SATELLITE - Pinned scroll animation
+    // ==========================================
+    const satellitePin = document.getElementById('satellite-pin');
+    if (satellitePin) {
+      const satelliteTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: satellitePin,
+          start: 'top top',
+          end: '+=130%',
+          pin: true,
+          scrub: 0.8,
+          anticipatePin: 1,
+        }
+      });
+
+      satelliteTl
+        .fromTo('.satellite-title', { opacity: 0, y: 40 }, { opacity: 1, y: 0, ease: 'none' }, 0)
+        .fromTo('.satellite-desc', { opacity: 0, y: 30 }, { opacity: 1, y: 0, ease: 'none' }, 0.06)
+        .fromTo('.step-card', { opacity: 0, y: 50 }, { opacity: 1, y: 0, stagger: 0.08, ease: 'none' }, 0.1)
+        .fromTo('.satellite-footer', { opacity: 0 }, { opacity: 1, ease: 'none' }, 0.2)
+        .to('.satellite-header', { opacity: 0, y: -50, ease: 'power2.in' }, 0.4)
+        .to('.satellite-grid', { opacity: 0, y: -30, ease: 'power2.in' }, 0.42)
+        .to('.satellite-footer', { opacity: 0, y: -20, ease: 'power2.in' }, 0.45);
+    }
+
+    // ==========================================
+    // SECURITY - Pinned scroll animation
+    // ==========================================
+    const securityPin = document.getElementById('security-pin');
+    if (securityPin) {
+      const securityTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: securityPin,
+          start: 'top top',
+          end: '+=130%',
+          pin: true,
+          scrub: 0.8,
+          anticipatePin: 1,
+        }
+      });
+
+      securityTl
+        .fromTo('.security-title', { opacity: 0, y: 40 }, { opacity: 1, y: 0, ease: 'none' }, 0)
+        .fromTo('.security-desc', { opacity: 0, y: 30 }, { opacity: 1, y: 0, ease: 'none' }, 0.06)
+        .fromTo('.security-card', { opacity: 0, y: 50 }, { opacity: 1, y: 0, stagger: 0.1, ease: 'none' }, 0.1)
+        .to('.security-header', { opacity: 0, y: -50, ease: 'power2.in' }, 0.4)
+        .to('.security-grid', { opacity: 0, y: -30, ease: 'power2.in' }, 0.42);
+    }
+
+    // ==========================================
+    // LBT TOOLS - Pinned scroll animation
+    // ==========================================
+    const lbtPin = document.getElementById('lbt-pin');
+    if (lbtPin) {
+      const lbtTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: lbtPin,
+          start: 'top top',
+          end: '+=130%',
+          pin: true,
+          scrub: 0.8,
+          anticipatePin: 1,
+        }
+      });
+
+      lbtTl
+        .fromTo('.lbt-badge', { opacity: 0, y: 20 }, { opacity: 1, y: 0, ease: 'none' }, 0)
+        .fromTo('.lbt-title', { opacity: 0, y: 40 }, { opacity: 1, y: 0, ease: 'none' }, 0.03)
+        .fromTo('.lbt-desc', { opacity: 0, y: 30 }, { opacity: 1, y: 0, ease: 'none' }, 0.08)
+        .fromTo('.tool-card', { opacity: 0, y: 50 }, { opacity: 1, y: 0, stagger: 0.06, ease: 'none' }, 0.12)
+        .to('.lbt-header', { opacity: 0, y: -50, ease: 'power2.in' }, 0.4)
+        .to('.lbt-grid', { opacity: 0, y: -30, ease: 'power2.in' }, 0.42);
+    }
+
+    // ==========================================
+    // SETTINGS - Pinned scroll animation
+    // ==========================================
+    const settingsPin = document.getElementById('settings-pin');
+    if (settingsPin) {
+      const settingsTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: settingsPin,
+          start: 'top top',
+          end: '+=130%',
+          pin: true,
+          scrub: 0.8,
+          anticipatePin: 1,
+        }
+      });
+
+      settingsTl
+        .fromTo('.settings-title', { opacity: 0, y: 40 }, { opacity: 1, y: 0, ease: 'none' }, 0)
+        .fromTo('.settings-desc', { opacity: 0, y: 30 }, { opacity: 1, y: 0, ease: 'none' }, 0.06)
+        .fromTo('.settings-cell', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, stagger: 0.03, ease: 'none' }, 0.1)
+        .to('.settings-header', { opacity: 0, y: -50, ease: 'power2.in' }, 0.4)
+        .to('.settings-grid', { opacity: 0, scale: 0.95, ease: 'power2.in' }, 0.42);
+    }
+
+    // ==========================================
+    // SPECS - Pinned scroll animation
+    // ==========================================
+    const specsPin = document.getElementById('specs-pin');
+    if (specsPin) {
+      const specsTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: specsPin,
+          start: 'top top',
+          end: '+=130%',
+          pin: true,
+          scrub: 0.8,
+          anticipatePin: 1,
+        }
+      });
+
+      specsTl
+        .fromTo('.specs-title', { opacity: 0, y: 40 }, { opacity: 1, y: 0, stagger: 0.05, ease: 'none' }, 0)
+        .fromTo('.specs-desc', { opacity: 0, y: 20 }, { opacity: 1, y: 0, stagger: 0.05, ease: 'none' }, 0.05)
+        .fromTo('.spec-row', { opacity: 0, x: -30 }, { opacity: 1, x: 0, stagger: 0.03, ease: 'none' }, 0.1)
+        .to('.specs-grid', { opacity: 0, y: -30, ease: 'power2.in' }, 0.4);
+    }
+
+    // ==========================================
+    // BUTTON MICRO-INTERACTIONS
+    // ==========================================
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('mouseenter', () => {
+        gsap.to(btn, { scale: 1.03, duration: 0.25, ease: 'power2.out' });
+      });
+      btn.addEventListener('mouseleave', () => {
+        gsap.to(btn, { scale: 1, duration: 0.25, ease: 'power2.out' });
+      });
+    });
+
+    // ==========================================
+    // METRIC CARD HOVER (Desktop only)
+    // ==========================================
+    if (window.innerWidth >= 1024) {
+      document.querySelectorAll('.metric-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          gsap.to(card, { y: -6, duration: 0.25, ease: 'power2.out' });
+        });
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card, { y: 0, duration: 0.25, ease: 'power2.out' });
+        });
+      });
+    }
+  }
+</script>
