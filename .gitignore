@@ -6,7 +6,7 @@ dist/
 
 # dependencies
 node_modules/
-pptfile/
+参考文件/
 # logs
 npm-debug.log*
 yarn-debug.log*
